@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - Find It @ KFUPM</title>
+  <link rel="stylesheet" href="Register.css"> <!-- Link to single CSS file -->
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    FIND IT @ KFUPM
+    <img src="LOGO-05.png" alt="KFUPM Logo">
+  </div>
+
+  <!-- Main container for registration form -->
+  <div class="container">
+    <h2>Sign up</h2>
+    <form class="form-group" id="register-form">
+      <input type="text" id="first-name" placeholder="First name" required>
+      <input type="text" id="last-name" placeholder="Last name" required>
+      
+      <input type="text" id="email" placeholder="Email Address" required>
+      <input type="text" id="phone" placeholder="Phone" required>
+      
+      <select id="occupation" required>
+        <option value="Student">Student</option>
+        <option value="Faculty">Faculty</option>
+      </select>
+      
+      <button type="submit" class="button register-btn">SIGN UP</button>
+      <p id="warning-message"></p> <!-- Placeholder for warning messages -->
+    </form>
+  </div>
+  <!-- Modal for success message -->
+<div id="successModal" class="modal">
+    <div class="modal-content">
+      <h2>Congratulations</h2>
+      <p>You have successfully signed up on our platform</p>
+      <img src="checkmark.png" alt="Success" class="success-icon">
+      <button id="loginPageButton" class="button modal-button">Login Page</button>
+    </div>
+  </div>
+  
+
+  <script src="Register.js"></script>
+</body>
+</html>

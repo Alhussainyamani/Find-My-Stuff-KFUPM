@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto:wght@400;700&display=swap');
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header styling */
+  .header {
+    background-color: #007D40;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .header img {
+    width: 70px;
+    height: 70px; /* Maintain aspect ratio */
+    vertical-align: middle;
+  }
+  
+  /* Main container styling */
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+  }
+  
+  /* Form styling */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    margin-bottom: 20px;
+  }
+  
+  .form-group input[type="text"],
+  .form-group select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .form-group select {
+    background-color: #f9f9f9;
+  }
+  
+  /* Button styling */
+  .button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    background-color: #007D40;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .button:hover {
+    background-color: #1E1E1E;
+  }
+  
+  /* Warning message styling */
+  #warning-message {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #ff0000;
+    display: block;
+  }
+  /* Modal styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  }
+  
+  .modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .success-icon {
+    width: 100px;
+    margin: 20px 0;
+  }
+  
+  .modal h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .modal p {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .modal-button {
+    background-color: #007D40;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .modal-button:hover {
+    background-color: #1E1E1E;
+  }
+  
+  
+  
+  

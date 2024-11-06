@@ -1,0 +1,285 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Sidebar Styling */
+  .sidebar {
+    background-color: #007D40; /* Green background for the sidebar line */
+    width: 60px; /* Width of the sidebar */
+    height: 100vh; /* Full viewport height */
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align icon to the top */
+    padding-top: 20px; /* Space from the top */
+    color: white;
+    flex-direction: column; /* Stack items vertically */
+  }
+  
+  .sidebar-menu {
+    font-size: 24px;
+    color: #000000; /* Black color for the menu symbol */
+    cursor: pointer;
+  }
+  
+  .sidebar-menu span {
+    color: #000000; /* Ensuring the symbol itself is black */
+  }
+  
+  /* Header Styling */
+.header {
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    padding-left: 60px;
+    margin-left: 80px;
+    position: relative; /* Needed to position the pseudo-element */
+    z-index: 1; /* Lower than sidebar */
+}
+  
+  .header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 60px; /* Adjust this to control the left offset of the line */
+    width: calc(100% - 60px); /* Reduce from the left (and optionally the right) */
+    height: 3px;
+    background-color: #000000; /* Bold black line */
+  }
+  
+  
+  .title {
+    flex: 1; /* Allows title to take up available space */
+    text-align: left;
+  }
+  
+  .title h1 {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+    color: #1E1E1E;
+  }
+  
+  .header-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .login-btn {
+    background-color: #007D40;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .login-btn:hover {
+    background-color: #1E1E1E;
+  }
+  
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+  
+  /* Main Content Styling */
+  .main-content {
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1200px;
+    margin-left: 120px; /* Increased margin-left to create more space from the sidebar */
+    text-align: center;
+  }
+  
+  /* Banner Section */
+  .banner-section {
+    margin: 20px 0;
+  }
+  
+  .banner-section h2 {
+    font-size: 20px;
+    color: #333;
+  }
+  
+  .banner-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+  
+  .banner-text {
+    font-weight: bold;
+    margin-top: 10px;
+    color: #333;
+    border-bottom: 2px solid #007D40;
+    padding-bottom: 10px;
+    text-align: left;
+    font-size: 20px
+  }
+  
+  /* Search Button */
+  .search-section {
+    margin: 20px 0;
+  }
+  
+  .search-btn {
+    background-color: #007D40;
+    color: white;
+    padding: 20px 60px; /* Increased horizontal padding for a wider button */
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 15px;
+  }
+  
+  .search-btn:hover {
+    background-color: #1E1E1E;
+  }
+  
+  
+  /* Related Items Section */
+  .related-items-section {
+    margin: 40px 0;
+  }
+  
+  .related-items-section h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+    border-bottom: 2px solid #007D40;
+    padding-bottom: 5px;
+    text-align: left;
+  }
+  
+  .items-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .item-card {
+    background-color: #f5f5f5;
+    width: 200px; /* Increased width for horizontal expansion */
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  .item-card p {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  .item-date {
+    color: #888;
+    font-size: 14px;
+  }
+  
+  .item-image-placeholder {
+    font-size: 50px;
+    color: #888;
+    margin: 10px 0;
+  }
+  
+  .details-btn {
+    background-color: #007D40;
+    color: white;
+    padding: 8px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .details-btn:hover {
+    background-color: #1E1E1E;
+  }
+
+  /* Sidebar Styling */
+  .sidebar {
+    background-color: #007D40;
+    width: 60px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 20px;
+    color: white;
+    flex-direction: column;
+    transition: width 0.5s;
+    z-index: 2;
+}
+
+/* Expanded Sidebar */
+.sidebar-expanded {
+    width: 100px;
+}
+
+/* Sidebar Menu Icon styling */
+.sidebar-menu span:first-child {
+    color: #000000;
+}
+
+/* Menu text styling */
+.menu-text {
+    display: none;
+    font-family: 'Inter', sans-serif;
+    color: white !important;
+    font-size: 16px;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+/* Show menu text when sidebar is expanded */
+.sidebar-expanded .menu-text {
+    display: inline-block;
+}
+
+/* Home text styling */
+.home-text {
+    display: none;
+    font-family: 'Inter', sans-serif;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 20px; /* Space below menu text */
+    text-decoration: none;
+    margin-left: 20px;
+
+    transition: color 0.3s;
+}
+
+/* Show Home text when sidebar is expanded */
+.sidebar-expanded .home-text {
+    display: inline-block;
+}
+
+/* Hover effect on Home text */
+.home-text:hover {
+    color: black;
+}
+
+  

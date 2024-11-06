@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto:wght@400;700&display=swap');
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header */
+  .header {
+    background-color: #007D40;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .header img {
+    width: 70px;
+    height: 70px; /* Maintain aspect ratio */
+    vertical-align: middle;
+  }
+  
+  /* Main content styling */
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin-top: -150px;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Form styling */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    margin-bottom: 20px;
+  }
+  
+  .form-group input[type="text"],
+  .form-group input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  /* Button styling */
+  .button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    color: white;
+    cursor: pointer;
+    margin: 5px 0;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .login-btn {
+    background-color: #007D40;
+    transition: background-color 0.3s;
+  }
+  
+  .login-btn:hover {
+    background-color: #1E1E1E;
+  }
+  
+  .guest-btn, .create-account-btn {
+    background-color: #007D40;
+    transition: background-color 0.3s;
+  }
+  
+  .guest-btn:hover, .create-account-btn:hover {
+    background-color: #1E1E1E;
+  }
+  
+  /* Forgot password link */
+  .forgot-password {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .forgot-password:hover {
+    text-decoration: underline;
+  }
+  
