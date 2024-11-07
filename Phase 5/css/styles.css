@@ -282,4 +282,114 @@
     color: black;
 }
 
-  
+/* Scrollable Container for Search Results */
+.search-results {
+  max-height: 300px; /* Fixed height for scrolling */
+  overflow-y: auto; /* Enable vertical scrolling */
+  border: 1px solid #ddd; /* Border for the scroll box */
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #f9f9f9; /* Optional background color */
+}
+
+/* Expanded width for each Item Card */
+.search-results .item-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100% - 20px); /* Full width with padding */
+  padding: 15px;
+  border: 1px solid #ddd; /* Border for each item */
+  border-radius: 5px;
+  background-color: #fff; /* Background color for each item */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  margin-bottom: 10px; /* Space between items */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Card Left and Right Sections */
+.search-results .card-left {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.search-results .card-left p:first-child {
+  font-weight: bold;
+  color: #333; /* Optional color adjustment */
+}
+
+.search-results .card-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Customize scrollbar for search results */
+.search-results::-webkit-scrollbar {
+  width: 8px;
+}
+
+.search-results::-webkit-scrollbar-thumb {
+  background-color: #007D40; /* Customize scrollbar color */
+  border-radius: 4px;
+}
+
+.search-results::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+/* Style for Search Items title */
+/* Style for Search Items title */
+.search-items h2 {
+  font-weight: bold;
+  text-align: left;
+  font-size: 24px; /* Adjust the font size if needed */
+  margin-top: 5px; /* Adjust this value to move it further down */
+  margin-bottom: 15px; /* Space below the title */
+}
+
+/* Style for the search bar */
+.search-bar input[type="text"] {
+  width: 80%; /* Increase width */
+  padding: 15px; /* Increase padding for height */
+  font-size: 16px; /* Adjust font size if desired */
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Style for the search button to match the increased size */
+.search-bar .search-btn {
+  padding: 15px 40px; /* Increase padding for size */
+  font-size: 16px; /* Adjust font size if desired */
+}
+
+/* Adjust spacing between search bar and items box */
+.search-items {
+  margin-bottom: 30px; /* Adjust this value to increase spacing */
+}
+
+/* Alternatively, if you have a specific container around the search bar */
+.search-bar {
+  margin-bottom: 30px; /* Ensures space specifically after the search bar */
+}
+
+.no-items-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.small-sadface {
+  width: 70px; /* Set the width */
+  height: 70px; /* Set the height */
+  margin-top: 10px; /* Space between message and image */
+}
+
+
+
+
+
+
