@@ -388,6 +388,95 @@
   margin-top: 10px; /* Space between message and image */
 }
 
+/* Report Details Section */
+.report-details-section h2 {
+  font-weight: bold;
+  border-bottom: 2px solid #007D40; /* Green line under header */
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* Details Box */
+.details-box {
+  background-color: #E6E6E6; /* Light gray background */
+  padding: 30px 20px; /* Increased padding for more height */
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  min-height: 600px; /* Minimum height for the box */
+}
+
+/* Left and Right Content in Details Box */
+.details-left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.details-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align location icon */
+  justify-content: flex-start;
+}
+
+/* Placeholder styles for item image and location icon */
+.item-image-placeholder,
+.location-icon {
+  font-size: 50px;
+  color: #888;
+  margin-top: 10px;
+}
+
+.details-left p,
+.details-right p {
+  font-size: 20px; /* Adjust this size as needed */
+  font-weight: bold; /* Make text bold for better readability */
+  color: #333; /* Optional: adjust color for improved contrast */
+  text-align: left;
+  padding: 15px;
+}
+
+.item-image-placeholder,
+.location-icon {
+  font-size: 60px; /* Increase icon size if desired */
+  color: #888;
+  margin-top: 10px;
+}
+
+/* Detail Value Box Styling */
+.detail-value {
+  background-color: #fff; /* White background */
+  border: 1px solid #ddd; /* Light border */
+  padding: 10px;
+  border-radius: 5px;
+  color: #333; /* Text color */
+  font-weight: normal; /* Make the value text regular weight */
+  margin-left: 10px; /* Space between label and value */
+  min-width: 200px; /* Set a minimum width */
+}
+
+/* Photo Container Styling */
+.photo-container {
+  margin-top: 15px; /* Add some space from the previous item */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Aligns photo label and placeholder to the left */
+}
+
+.photo-container .item-image-placeholder {
+  font-size: 60px; /* Icon size */
+  color: #888;
+  margin-left: 50px;
+}
+
+
+
+
+
+
 
 
 
