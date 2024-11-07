@@ -1,68 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Find it @ KFUPM - Home Page</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/styles.css">
-    </head>
-    <body>
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <div class="sidebar-menu">
-                <span>&#9776;</span>
-                <span class="menu-text">menu</span>
-                <a href="HomePage.html" class="home-text">Home</a> <!-- New "Home" link -->
-            </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find it @ KFUPM - Guest Home Page</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-menu">
+      <span>&#9776;</span>
+      <span class="menu-text">menu</span>
+      <a href="HomePage.html" class="home-text">Home</a>
+      <a href="HomePage.html" class="home-text">My points</a>
+      <a href="HomePage.html" class="home-text">My reports</a> <!-- New "Home" link -->
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="title">
+      <h1>Find it @ KFUPM</h1>
+    </div>
+    <div class="header-right">
+      <a href="ParticipantProfilePage.html"><img src="assets/images/profile.png" alt="Profile" class="logo profile-logo"></a>
+      <a href="ParticipantNotificationsPage.html"><img src="assets/images/notification.png" alt="Notifications" class="logo notification-logo"></a>
+      <img src="assets/images/LOGO-03.png" alt="KFUPM Logo" class="logo main-logo">
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Banner Section -->
+    <section class="banner-section">
+      <h2>Easily Find and Report lost Items with us!</h2>
+      <img src="assets/images/HomePage.jpg" alt="KFUPM Banner" class="banner-image">
+      <p class="banner-text">Manage Your Lost and Found Items with Our Platform</p>
+    </section>
+
+    <!-- Search Button -->
+    <section class="search-section">
+      <button class="search-btn">Report Lost Item</button>
+      <button class="search-btn">Search Items</button>
+      <button class="search-btn">Report Found Item</button>
+    </section>
+
+    <!-- Related Items Section -->
+    <section class="related-items-section">
+      <h3>Related Items</h3>
+      <div class="items-grid">
+        <!-- Item Card 1 -->
+        <div class="item-card">
+          <p>Item X</p>
+          <p class="item-date">25 Sep</p>
+          <div class="item-image-placeholder">&#128247;</div>
+          <button class="details-btn">Details</button>
         </div>
-        <!-- Header -->
-        <div class="header">
-            <div class="header-text">Find it @ KFUPM</div>
-            <div class="header-left">  
-                <a href="LoginPage.html" class="login-btn"><!-- Image of the notification symbol-->></a>
-                <a href="LoginPage.html" class="login-btn"><!-- Image of the person symbol-->></a>
-                <img src="Phase 5\LOGO-05.png" alt="KFUPM Logo" class="logo">
-            </div>
-            <!--Main Content-->
-            <div class="main-content">
-                <!--Banner Section-->
-                <div class="banner-section">
-                    <h2>Easily Find and Report lost Items with us!</h2>
-                    <img src="Phase 5\HomePage.jpg" alt="KFUPM Banner" class="banner-image">
-                    <p class="banner-text">Manage Your Lost and Found Items with Our Platform</p>
-                </div>
-                <!--Action buttons Section-->
-                <div class="action-section">
-                    <button class="search-btn">Report Lost Item</button>
-                    <button class="search-btn">Search Items</button>
-                    <button class="search-btn">Report Found Item</button>
-                </div>
-                <!--Related Items Section-->
-                <div class="related-items-section">
-                    <h3>Related Items</h3>
-                    <!--Items Grid-->
-                    <div class="items-grid">
-                        <div class="item-card">
-                            <p>Item 1</p>
-                            <p class="item-date">25 Sep</p>
-                            <div class="item-image-placeholder">&#128247;</div>
-                            <button class="details-btn">Details</button>
-                        </div>
-                        <div class="item-card">
-                            <p>Item 2</p>
-                            <p class="item-date">25 Sep</p>
-                            <div class="item-image-placeholder">&#128247;</div>
-                            <button class="details-btn">Details</button>
-                        </div>
-                        <div class="item-card">
-                            <p>Item 3</p>
-                            <p class="item-date">25 Sep</p>
-                            <div class="item-image-placeholder">&#128247;</div>
-                            <button class="details-btn">Details</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!-- Item Card 2 -->
+        <div class="item-card">
+          <p>Item X</p>
+          <p class="item-date">26 Sep</p>
+          <div class="item-image-placeholder">&#128247;</div>
+          <button class="details-btn">Details</button>
         </div>
-    </body>
+        <!-- Item Card 3 -->
+        <div class="item-card">
+          <p>Item X</p>
+          <p class="item-date">27 Sep</p>
+          <div class="item-image-placeholder">&#128247;</div>
+          <button class="details-btn">Details</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Link to external JavaScript file -->
+  <script src="js/HomePage.js"></script>
+</body>
 </html>
