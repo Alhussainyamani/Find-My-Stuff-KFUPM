@@ -36,16 +36,16 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   createAccountButton.addEventListener("click", () => {
-    window.location.href = "../Register/Register.html"; // Redirect to Register.html
+    window.location.href = "Register.html"; // Redirect to Register.html
   });
 
   forgotPasswordLink.addEventListener("click", (event) => {
     event.preventDefault(); // Prevent default link behavior
-    window.location.href = "../ResetPassword/ResetPassword.html"; // Redirect to ResetPassword.html
+    window.location.href = "ResetPassword.html"; // Redirect to ResetPassword.html
   });
 
   // Add click event listener to the guest button
   guestButton.addEventListener("click", () => {
-    window.location.href = "../GuestHomePage/GuestHomePage.html"; // Redirect to GuestHomePage.html
+    window.location.href = "GuestHomePage.html"; // Redirect to GuestHomePage.html
   });
 });

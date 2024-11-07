@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
     // Redirect to login page when "Login Page" button is clicked
     loginPageButton.addEventListener("click", () => {
-      window.location.href = "../Login/Login.html"; // Redirect to Login.html
+      window.location.href = "Login.html"; // Redirect to Login.html
     });
   });
   
