@@ -104,5 +104,16 @@ document.addEventListener("DOMContentLoaded", () => {
     homeButton.addEventListener("click", () => {
       window.location.href = "HomePage.html"; // Adjust the path as needed
     });
+
+    const profileIcon = document.querySelector(".profile-icon");
+    profileIcon.addEventListener("click", () => {
+        window.location.href = "ProfileParticipantPage.html";
+    });
+
+    // Redirect to ParticipantNotifications.html when the notification icon is clicked
+    const notificationIcon = document.querySelector(".notification-icon");
+    notificationIcon.addEventListener("click", () => {
+        window.location.href = "ParticipantNotifications.html";
+    });
   });
   

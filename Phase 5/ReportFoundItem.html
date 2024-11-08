@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find it @ KFUPM - Guest Home Page</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-menu">
+      <span>&#9776;</span>
+      <span class="menu-text">menu</span>
+      <a href="HomePage.html" class="home-text">Home</a>
+      <a href="MyPoints.html" class="home-text">My points</a>
+      <a href="MyReports.html" class="home-text">My reports</a> <!-- New "Home" link -->
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="title">
+      <h1>Find it @ KFUPM</h1>
+    </div>
+    <div class="header-right">
+        <i class="fas fa-bell notification-icon"></i>
+        <i class="fas fa-user profile-icon"></i>
+      <img src="assets/images/LOGO-03.png" alt="KFUPM Logo" class="logo main-logo">
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <section class="report-item">
+      <h2>Report Found Item</h2>
+      <div class="details-box-report">
+        <form class="report-form">
+            <div class="form-row">
+                <label for="name">Name <span class="required-asterisk">*</span></label>
+                <input type="text" id="name" placeholder="Enter your name...">
+                <p class="error-message" id="name-error"></p>
+              </div>
+              <div class="form-row">
+                <label for="number">Number <span class="required-asterisk">*</span></label>
+                <input type="text" id="number" placeholder="Enter your number...">
+                <p class="error-message" id="number-error"></p>
+              </div>
+              <div class="form-row">
+                <label for="location">Last seen location <span class="required-asterisk">*</span></label>
+                <input type="text" id="location" placeholder="ex: building 59">
+                <p class="error-message" id="location-error"></p>
+              </div>
+              <div class="form-row">
+                <label for="keyword">Key word <span class="required-asterisk">*</span></label>
+                <input type="text" id="keyword" placeholder="ex: key, ipad">
+                <p class="error-message" id="keyword-error"></p>
+              </div>
+          <div class="description-checkbox-row">
+            <div class="form-row">
+              <label for="description">Description</label>
+              <textarea id="description" placeholder="..."></textarea>
+            </div>
+            <div class="checkbox-row">
+              <input type="checkbox" id="sensitive-item" name="sensitive-item">
+              <label for="sensitive-item">Sensitive item</label>
+            </div>
+          </div>
+          <div class="form-row">
+            <label>Upload image</label>
+            <img src="assets/images/upload.png" alt="Upload Icon" class="image-upload">
+          </div>
+          <button type="submit" class="submit-btn">Submit</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <div class="popup-overlay" id="popup-overlay">
+    <div class="popup-content">
+      <h2>Your Report has been submitted!</h2>
+      <img src="assets/images/checkmark.png" alt="Success">
+      <button class="home-btn" id="home-btn">Home Page</button>
+    </div>
+  </div>
+
+  <!-- Link to external JavaScript file -->
+  <script src="js/ReportItem.js"></script>
+</body>
+</html>
