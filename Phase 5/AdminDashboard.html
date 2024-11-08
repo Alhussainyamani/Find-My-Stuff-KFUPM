@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="AdminDashboard.css" />
   </head>
   <body>
-    <div class="sidebar" id="sidebar">
+    <div class="sidebar collapsed" id="sidebar">
+      <!-- Added 'collapsed' class -->
       <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
       <ul>
         <li class="menu-item">Home</li>
@@ -21,11 +22,10 @@
       </ul>
     </div>
 
-    <div class="main-content">
+    <div class="main-content" style="margin-left: 60px">
+      <!-- Adjusted initial margin -->
       <header class="header">
-        <!-- Heading aligned to the left -->
         <h1 class="header-title">Find it @ KFUPM</h1>
-        <!-- Header Icons aligned to the right -->
         <div class="header-icons">
           <i class="fas fa-bell notification-icon"></i>
           <i class="fas fa-user profile-icon"></i>
@@ -50,7 +50,6 @@
             <h3>Lost Items Reported This Week</h3>
             <p class="stat-number">14</p>
           </div>
-
           <div class="stat-card">
             <h3>Found Items Reported This Week</h3>
             <p class="stat-number">6</p>
@@ -63,7 +62,6 @@
             <h3>Items Waiting for Approval</h3>
             <p class="stat-number">8</p>
           </div>
-
           <div class="stat-card">
             <h3>Most Lost Item This Week</h3>
             <p class="stat-number">Keys</p>
@@ -76,20 +74,7 @@
       </div>
     </div>
 
-    <script>
-      function toggleSidebar() {
-        const sidebar = document.getElementById("sidebar");
-        sidebar.classList.toggle("collapsed");
-
-        // Adjust menu item visibility
-        document.querySelectorAll(".menu-item").forEach((item) => {
-          if (sidebar.classList.contains("collapsed")) {
-            item.style.display = "none";
-          } else {
-            item.style.display = "block";
-          }
-        });
-      }
-    </script>
+    <!-- Link to external JavaScript file -->
+    <script src="AdminDashboard.js"></script>
   </body>
 </html>
