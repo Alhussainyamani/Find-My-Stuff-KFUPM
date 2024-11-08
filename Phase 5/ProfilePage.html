@@ -1,55 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Profile Page</title>
-        <link rel="stylesheet" href="css/styles.css">
-    </head>
-    <body>
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <div class="sidebar-menu">
-            <span>&#9776;</span>
-            <span class="menu-text">menu</span>
-            <a href="GuestHomePage.html" class="home-text">Home</a> <!-- New "Home" link -->
-            <a href="GuestHomePage.html" class="home-text">My Points</a> <!-- New "Home" link -->
-            <a href="GuestHomePage.html" class="home-text">My Reports</a> <!-- New "Home" link -->
-            </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find it @ KFUPM - Profile</title>
+  <link rel="stylesheet" href="css/styles.css"> <!-- Existing CSS -->
+  <link rel="stylesheet" href="css/Profile.css"> <!-- New CSS for this page -->
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-menu" onclick="toggleSidebar()">
+        <span>&#9776;</span>
+        <span class="menu-text">Menu</span>
+        <a href="GuestHomePage.html" class="home-text">Home</a>
+        <a href="MyPoints.html" class="menu-text">My Points</a>
+        <a href="MyReports.html" class="menu-text">My Reports</a>
+        <a href="Comments.html" class="menu-text">Comments</a>
+        <a href="Notifications.html" class="menu-text">Notifications</a>
+        <a href="Profile.html" class="menu-text">Profile</a>
+      </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="title">
+      <h1>Find it @ KFUPM</h1>
+    </div>
+    <div class="header-right">
+      <button class="login-btn">LOGIN</button>
+      <img src="assets/images/LOGO-03.png" alt="KFUPM Logo" class="logo">
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content profile-section">
+    <h2>Your Profile</h2>
+    <section class="profile-info">
+      <p><strong>Name:</strong> John Doe</p>
+      <p><strong>Email:</strong> johndoe@example.com</p>
+    </section>
+
+    <section class="bookmarks">
+      <h3>Bookmarks</h3>
+      <div class="bookmarks-list">
+        <!-- Filled Bookmarks -->
+        <div class="bookmark">
+          <p><strong>Item 1:</strong> BASIC INFORMATION ABOUT THE ITEM</p>
+          <button class="details-btn">Details</button>
         </div>
-        
-        <!-- Header -->
-        <header class="header">
-            <div class="title">
-            <h1>Find it @ KFUPM</h1>
-            </div>
-            <div class="header-right">
-            <button class="login-btn">LOGIN</button>
-            <button class="login-btn">LOGIN</button>
-            <img src="LOGO-03.png" alt="KFUPM Logo" class="logo">
-            </div>
-            <!--Main Content-->
-            <main class="main-content">
-                <!--Profile Section -->
-                <section class="profile">
-                    <h2>My Profile</h2>
-                    <div class="profile-grid">
-                        <div class="profile-card">
-                            <p>Name: </p>
-                            <p>Email: </p>
-                            <p>Phone: </p>
-                            <p>Points: </p>
-                            <button class="edit-btn">Edit</button>
-                        </div>
-                        <div class="profile-card">
-                            <h2>Bookmarks</h2>
-                            <div class="Bookmarks">
-                                <p>Your bookmarks is empty ...</p>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </section>
-            </main>
-        </header>                    
-    </body>
+        <div class="bookmark">
+          <p><strong>Item 2:</strong> BASIC INFORMATION ABOUT THE ITEM</p>
+          <button class="details-btn">Details</button>
+        </div>
+        <!-- More bookmarks can be added here -->
+      </div>
+
+      <!-- Empty Bookmarks Section -->
+      <div class="empty-bookmarks" style="display: none;">
+        <p>Your bookmarks are <span class="empty-text">empty</span> ...</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="/js/GuestHomePage.js"></script> <!-- Updated JS path -->
+  <script src="Profile.js"></script> <!-- New JS for this page -->
+</body>
 </html>
