@@ -8,12 +8,13 @@ document.addEventListener("DOMContentLoaded", () => {
     mainContent.style.marginLeft = "60px";
   }
 
-  // Set the 'Home' menu item as active and remove the active class from 'Dashboard'
-  const homeItem = document.getElementById("nav-home");
-  const dashboardItem = document.getElementById("nav-dashboard");
+  // Highlight the 'Home' menu item and ensure 'Dashboard' is not active
+  const homeItem = document.querySelector(".menu-item:nth-child(1)"); // Adjust selector if needed
+  const dashboardItem = document.querySelector(".menu-item:nth-child(2)"); // Adjust selector if needed
+
   if (homeItem && dashboardItem) {
-    homeItem.classList.add("active");
-    dashboardItem.classList.remove("active");
+    homeItem.classList.add("active"); // Highlight 'Home' menu item
+    dashboardItem.classList.remove("active"); // Remove highlight from 'Dashboard'
   }
 });
 
@@ -35,4 +36,3 @@ function toggleSidebar() {
     ? "60px"
     : "200px";
 }
-
