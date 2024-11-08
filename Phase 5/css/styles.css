@@ -135,7 +135,7 @@
     margin: 20px 0;
   }
   
-  .search-btn {
+  .search-btn , .report-lost-btn, .report-found-btn{
     background-color: #007D40;
     color: white;
     padding: 20px 60px; /* Increased horizontal padding for a wider button */
@@ -147,7 +147,7 @@
     margin-top: 15px;
   }
   
-  .search-btn:hover {
+  .search-btn:hover , .report-lost-btn:hover , .report-found-btn:hover{
     background-color: #1E1E1E;
   }
   
@@ -235,7 +235,7 @@
 
 /* Expanded Sidebar */
 .sidebar-expanded {
-    width: 100px;
+    width: 110px;
 }
 
 /* Sidebar Menu Icon styling */
@@ -389,7 +389,7 @@
 }
 
 /* Report Details Section */
-.report-details-section h2 {
+.report-details-section h2 , .report-item h2{
   font-weight: bold;
   border-bottom: 2px solid #007D40; /* Green line under header */
   padding-bottom: 5px;
@@ -471,6 +471,195 @@
   color: #888;
   margin-left: 50px;
 }
+
+.profile-logo {
+  width: 60px; /* Adjust width as needed */
+  height: 60px; /* Adjust height as needed */
+}
+
+/* Notification icon size */
+.notification-logo {
+  width: 30px; /* Adjust width as needed */
+  height: 30px; /* Adjust height as needed */
+  margin-right: 10px;
+}
+
+/* Report Form Styles */
+.report-item h2 {
+  font-weight: bold;
+  border-bottom: 2px solid #007D40;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.details-box-report {
+  background-color: #E6E6E6;
+  padding: 30px 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Adjust form layout */
+.report-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  width: 100%;
+  height: 480px;
+  align-items: center; /* Align items vertically in the middle */
+}
+
+/* Description and checkbox container */
+.description-checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 100px; /* Space between description and checkbox */
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.form-row input[type="text"] {
+  width: 60%; /* Reduce the width for input fields */
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+/* Description field (textarea) full width within the container */
+.form-row textarea {
+  width: 150%; /* Full width within the container */
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  resize: none;
+  height: 80px;
+}
+/* Checkbox styling */
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 10px; /* Adjust spacing to position next to description */
+}
+
+.upload-placeholder {
+  font-size: 40px;
+  color: #888;
+  text-align: center;
+  border: 1px dashed #ccc;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.submit-btn {
+  grid-column: span 2;
+  padding: 15px;
+  width: 15%; /* Set the width to your desired width */
+  margin: 0 auto;
+  background-color: #007D40;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.submit-btn:hover {
+  background-color: #005a2c;
+}
+
+/* Style for the upload icon */
+.image-upload {
+  width: 100px; /* Adjust width as needed */
+  height: 100px; /* Adjust height as needed */
+  object-fit: contain; /* Make sure the image maintains its aspect ratio */
+  padding: 10px;
+}
+
+.required-asterisk {
+  color: red;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+  display: none; /* Hidden by default */
+}
+
+
+/* Popup overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none; /* Initially hidden */
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Popup content with vertical layout */
+.popup-content {
+  background: #ffffff;
+  padding: 30px;
+  text-align: center;
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center;
+  gap: 20px; /* Space between each element */
+}
+
+.popup-content h2 {
+  font-weight: bold;
+  margin: 0; /* Remove bottom margin */
+}
+
+.popup-content img {
+  width: 80px;
+  height: 80px;
+}
+
+.popup-content .home-btn {
+  padding: 10px 20px;
+  background-color: #007D40;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+}
+
+.popup-content .home-btn:hover {
+  background-color: #005a2c;
+}
+
+
+
+
 
 
 
