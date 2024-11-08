@@ -15,9 +15,9 @@
     <div class="sidebar" id="sidebar">
       <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
       <ul>
-        <li class="menu-item active" id="nav-home">Home</li>
-        <li class="menu-item" id="nav-dashboard">Dashboard</li>
-        <li class="menu-item" id="nav-reports">Reports</li>
+        <li class="menu-item">Home</li>
+        <li class="menu-item active">Dashboard</li>
+        <li class="menu-item">Reports</li>
       </ul>
     </div>
 
@@ -32,6 +32,7 @@
       <div class="header-line"></div>
 
       <h2 class="main-heading">Admin View</h2>
+      <div class="green-underline"></div>
 
       <!-- Dashboard content inside a container -->
       <div class="dashboard-container">
@@ -50,7 +51,7 @@
           </div>
         </div>
       </div>
-    </br>
+
       <div class="green-underline"></div>
 
       <!-- Search Button -->
@@ -60,8 +61,6 @@
 
       <!-- Related Items Section -->
       <h3 class="related-items-heading">Related Items</h3>
-    </br>
-
       <div class="green-underline"></div>
       <div class="related-items-container">
         <div class="related-item-card">
@@ -85,7 +84,20 @@
       </div>
     </div>
 
-    <!-- Link to external JavaScript file -->
-    <script src="AdminDashboardHome.js"></script>
+    <script>
+      function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        sidebar.classList.toggle("collapsed");
+
+        // Adjust menu item visibility
+        document.querySelectorAll(".menu-item").forEach((item) => {
+          if (sidebar.classList.contains("collapsed")) {
+            item.style.display = "none";
+          } else {
+            item.style.display = "block";
+          }
+        });
+      }
+    </script>
   </body>
 </html>
