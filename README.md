@@ -61,3 +61,9 @@ Find-My-Stuff-KFUPM/
 - **`*.html`**: HTML files for different pages of the application.
 
 
+## Contribution Guidelines
+- Clone the repository and create a new branch for your feature or fix.
+- Commit your changes with clear and descriptive messages.
+- Push your branch and create a pull request for review.
+
+
