@@ -40,7 +40,7 @@ To set up the project locally, follow these steps:
             | admin2@kfupm.edu.sa      | adminpass2    |
 
 **Project Features**
-- User authentication (login and logout)
+- User authentication (Login and Register)
 - Admin and user views
 - Item search functionality
 - Dashboard for lost item reports
