@@ -9,6 +9,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
@@ -19,7 +20,7 @@
       <span class="menu-text">menu</span>
       <a href="HomePage.html" class="home-text">Home</a>
       <a href="MyPoints.html" class="home-text">My points</a>
-      <a href="MyReports.html" class="home-text">My reports</a> <!-- New "Home" link -->
+      <a href="MyReports.html" class="home-text">My reports</a>
     </div>
   </div>
 
@@ -74,33 +75,40 @@
       
     <!-- Related Items Section -->
     <section class="related-items-section">
-      <h3>Related Items</h3>
-      <div class="items-grid">
-        <!-- Item Card 1 -->
-        <div class="item-card">
-          <p>Item X</p>
-          <p class="item-date">25 Sep</p>
-          <div class="item-image-placeholder">&#128247;</div>
-          <button class="details-btn">Details</button>
+        <h3>Related Items</h3>
+        <div class="row justify-content-center">
+          <!-- Item Card 1 -->
+          <div class="col-md-4 col-12 mb-3 d-flex justify-content-center">
+            <div class="item-card">
+              <p>Item X</p>
+              <p class="item-date">25 Sep</p>
+              <div class="item-image-placeholder">&#128247;</div>
+              <button class="details-btn">Details</button>
+            </div>
+          </div>
+          <!-- Item Card 2 -->
+          <div class="col-md-4 col-12 mb-3 d-flex justify-content-center">
+            <div class="item-card">
+              <p>Item X</p>
+              <p class="item-date">26 Sep</p>
+              <div class="item-image-placeholder">&#128247;</div>
+              <button class="details-btn">Details</button>
+            </div>
+          </div>
+          <!-- Item Card 3 -->
+          <div class="col-md-4 col-12 mb-3 d-flex justify-content-center">
+            <div class="item-card">
+              <p>Item X</p>
+              <p class="item-date">27 Sep</p>
+              <div class="item-image-placeholder">&#128247;</div>
+              <button class="details-btn">Details</button>
+            </div>
+          </div>
         </div>
-        <!-- Item Card 2 -->
-        <div class="item-card">
-          <p>Item X</p>
-          <p class="item-date">26 Sep</p>
-          <div class="item-image-placeholder">&#128247;</div>
-          <button class="details-btn">Details</button>
-        </div>
-        <!-- Item Card 3 -->
-        <div class="item-card">
-          <p>Item X</p>
-          <p class="item-date">27 Sep</p>
-          <div class="item-image-placeholder">&#128247;</div>
-          <button class="details-btn">Details</button>
-        </div>
-      </div>
-    </section>
+      </section>
   </main>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   <!-- Link to external JavaScript file -->
   <script src="js/ReportDetailsParticipant.js"></script>
 </body>
