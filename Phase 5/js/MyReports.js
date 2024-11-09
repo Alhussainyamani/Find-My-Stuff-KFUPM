@@ -5,9 +5,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.addEventListener("click", (event) => {
         if (event.target.classList.contains("details-btn")) {
-            window.location.href = "ReportParticipantDetails.html"; // Redirect to ReportDetailsGuest.html
+            window.location.href = "ParticipantReportDetails.html"; // Redirect to ReportDetailsGuest.html
         }
     });
+     
 
     // Toggle the sidebar expanded class when the menu button or sidebar is clicked
     sidebarMenu.addEventListener("click", () => {

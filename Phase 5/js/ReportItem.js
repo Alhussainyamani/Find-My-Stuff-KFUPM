@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
         reader.readAsDataURL(file);
       }
     });
-  
+
     // Form validation
     form.addEventListener("submit", (event) => {
       event.preventDefault();
