@@ -45,78 +45,19 @@ To set up the project locally, follow these steps:
 - Item search functionality
 - Dashboard for lost item reports
 
-**Project Structure**
-
-Find-My-Stuff-KFUPM
+- ## Project Structure
+Find-My-Stuff-KFUPM/
 ├── Phase 5/
 │   ├── css/
-│   │   ├── AdminDashboard.css
-│   │   ├── Comments.css
-│   │   ├── Login.css
-│   │   ├── Profile.css
-│   │   ├── Register.css
-│   │   ├── ResetPassword.css
-│   │   └── styles.css
-|   |   
 │   ├── js/
-│   │   ├── AdminApprovedReport.js
-│   │   ├── AdminDashboard.js
-│   │   ├── AdminHomePage.js
-│   │   ├── AdminNotifications.js
-│   │   ├── AdminProfile.js
-│   │   ├── AdminUnApprovedReport.js
-│   │   ├── AllReports.js
-│   │   ├── Comments.js
-│   │   ├── CommentsAdmin.js
-│   │   ├── GuestHomePage.js
-│   │   ├── HomePage.js
-│   │   ├── Login.js
-│   │   ├── MyPoints.js
-│   │   ├── MyReports.js
-│   │   ├── Notifications.js
-│   │   ├── Profile.js
-│   │   ├── Register.js
-│   │   ├── ReportDetailsGuest.js
-│   │   ├── ReportDetailsParticipant.js
-│   │   ├── ReportItem.js
-│   │   ├── ResetPassword.js
-│   │   ├── SearchPage.js
-│   │   ├── SearchPageAdmin.js
-│   │   └── SearchPageGuest.js
 │   ├── images/
-│   │   ├── checkmark.png
-│   │   ├── HomePage.jpg
-│   │   ├── LOGO-03.png
-│   │   ├── LOGO-05.png
-│   │   ├── notification.png
-│   │   ├── profile.png
-│   │   ├── sadface.png
-│   │   ├── sampleKey.jpg
-│   │   └── upload.png
-│   ├── AdminApprovedReport.html
-│   ├── AdminDashboard.html
-│   ├── AdminHome.html
-│   ├── AdminNotifications.html
-│   ├── AdminUnApprovedReport.html
-│   ├── AllReports.html
-│   ├── CommentsAdmin.html
-│   ├── CommentsParticipant.html
-│   ├── GuestHomePage.html
-│   ├── HomePage.html
-│   ├── Login.html
-│   ├── MyPoints.html
-│   ├── MyReports.html
-│   ├── ParticipantNotifications.html
-│   ├── ParticipantReportDetails.html
-│   ├── ProfileAdmin.html
-│   ├── ProfileParticipantPage.html
-│   ├── Register.html
-│   ├── ReportDetailsGuest.html
-│   ├── ReportFoundItem.html
-│   ├── ReportLostItem.html
-│   ├── ResetPassword.html
-│   ├── SearchPageAdmin.html
-│   ├── SearchPageGuest.html
-│   └── SearchPageParticipant.html
+│   ├── *.html
 ├── README.md
 └── .gitignore
+
+- **`css/`**: Contains all CSS stylesheets.
+- **`js/`**: Contains all JavaScript files.
+- **`images/`**: Contains image assets.
+- **`*.html`**: HTML files for different pages of the application.
+
+
