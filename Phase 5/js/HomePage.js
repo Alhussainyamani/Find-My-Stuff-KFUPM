@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     document.addEventListener("click", (event) => {
         if (event.target.classList.contains("details-btn")) {
-            window.location.href = "ParticipantReportDetails.html"; // Redirect to ReportDetailsGuest.html
+            window.location.href = "ParticipantReportDetails.html"; // Redirect to ParticipantReportDetails.html
         }
     });
      
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     
-    // Redirect to the SearchPageGuest.html when the Search button is clicked
+    // Redirect to the SearchPageParticipant.html when the Search button is clicked
     searchButton.addEventListener("click", () => {
         window.location.href = "SearchPageParticipant.html"; 
     });
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "ReportLostItem.html"; 
     });
 
-    // Redirect to the ReportLostItem.html when the Report Found Item button is clicked
+    // Redirect to the ReportFoundItem.html when the Report Found Item button is clicked
     foundButton.addEventListener("click", () => {
         window.location.href = "ReportFoundItem.html"; 
     });

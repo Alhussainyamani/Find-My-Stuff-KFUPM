@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Event listener for the Details button
     document.addEventListener("click", (event) => {
         if (event.target.classList.contains("details-btn")) {
-            window.location.href = "ParticipantReportDetails.html"; // Redirect to ReportDetailsGuest.html
+            window.location.href = "ParticipantReportDetails.html"; // Redirect to ParticipantReportDetails.html
         }
     });
      

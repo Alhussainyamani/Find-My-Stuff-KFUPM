@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // Sample data for Participants and Admins
+  // Sample data for Participants and Admins // Use them for testing the UI
   const participants = [
     { email: "participant1@kfupm.edu.sa", password: "password123" },
     { email: "participant2@kfupm.edu.sa", password: "password456" }

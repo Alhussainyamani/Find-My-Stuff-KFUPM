@@ -17,11 +17,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Redirect to the Login page when the LOGIN button is clicked
     loginButton.addEventListener("click", () => {
-        window.location.href = "Login.html"; // Adjust the path as needed
+        window.location.href = "Login.html";
     });
 
     // Redirect to the SearchPageGuest.html when the Search button is clicked
     searchButton.addEventListener("click", () => {
-        window.location.href = "SearchPageGuest.html"; // Adjust the path as needed
+        window.location.href = "SearchPageGuest.html";
     });
 });

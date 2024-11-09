@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     
-    // Redirect to the SearchPageGuest.html when the Search button is clicked
+    // Redirect to the SearchPageAdmin.html when the Search button is clicked
     searchButton.addEventListener("click", () => {
         window.location.href = "SearchPageAdmin.html"; 
     });
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "ProfileAdmin.html";
     });
 
-    // Redirect to ParticipantNotifications.html when the notification icon is clicked
+    // Redirect to AdminNotifications.html when the notification icon is clicked
     const notificationIcon = document.querySelector(".notification-icon");
     notificationIcon.addEventListener("click", () => {
         window.location.href = "AdminNotifications.html";

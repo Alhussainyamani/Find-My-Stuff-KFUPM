@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const detailButton = document.querySelector(".details-btn");
 
     detailButton.addEventListener("click", () => {
-        window.location.href = "ReportDetailsGuest.html"; // Adjust the path as needed
+        window.location.href = "ReportDetailsGuest.html";
     });
 
     // Toggle the sidebar expanded class when the menu button or sidebar is clicked

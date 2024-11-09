@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Event listener for "Comments" button
     commentsButton.addEventListener("click", () => {
-        window.location.href = "CommentsParticipant.html"; // Redirect to Comments.html
+        window.location.href = "CommentsParticipant.html"; // Redirect to CommentsParticipant.html
     });
 
     const sidebar = document.querySelector(".sidebar");

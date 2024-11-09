@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "ProfileAdmin.html";
     });
 
-    // Redirect to ParticipantNotifications.html when the notification icon is clicked
+    // Redirect to AdminNotifications.html when the notification icon is clicked
     const notificationIcon = document.querySelector(".notification-icon");
     notificationIcon.addEventListener("click", () => {
         window.location.href = "AdminNotifications.html";

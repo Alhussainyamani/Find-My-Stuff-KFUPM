@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "ProfileAdmin.html";
     });
 
-    // Redirect to ParticipantNotifications.html when the notification icon is clicked
+    // Redirect to AdminNotifications.html when the notification icon is clicked
     const notificationIcon = document.querySelector(".notification-icon");
     notificationIcon.addEventListener("click", () => {
         window.location.href = "AdminNotifications.html";
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.addEventListener("click", (event) => {
         if (event.target.classList.contains("details-btn")) {
-            window.location.href = "AdminApprovedReport.html"; // Redirect to ReportDetailsGuest.html
+            window.location.href = "AdminApprovedReport.html"; // Redirect to AdminApprovedReport.html
         }
     });
 });
