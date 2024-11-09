@@ -9,6 +9,9 @@ document.addEventListener("DOMContentLoaded", () => {
       { title: "Notification 4", date: "20 mins ago", description: "Report 14 has been approved." },
       { title: "Notification 5", date: "1 hour ago", description: "Report 19 has been rejected." },
       { title: "Notification 6", date: "2 hours ago", description: "Item found: Black wallet." },
+      { title: "Notification 7", date: "Yesterday", description: "Reminder: Check lost and found items." },
+      { title: "Notification 8", date: "Yesterday", description: "Report status updated." },
+      { title: "Notification 9", date: "2 days ago", description: "Your item has been claimed!" },
       { title: "Notification 10", date: "3 days ago", description: "Profile updated successfully." }
     ];
   
