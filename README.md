@@ -24,7 +24,7 @@ To set up the project locally, follow these steps:
 2. **Navigate the Right File**
     Go to Phase 5 File and Open **Login.html** to start the App
 
-**Important Information to know before start the App**
+3. **Important Information to know before start the App**
     We've created  mock accounts to run the and test the program without database to make sure that we meet all the requirement of this phase 
                          User Accounts
             | Email                     | Password     |
