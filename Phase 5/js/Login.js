@@ -1,51 +1,90 @@
 document.addEventListener("DOMContentLoaded", () => {
   const loginButton = document.querySelector(".login-btn");
   const emailInput = document.querySelector("#email");
+  const passwordInput = document.querySelector("input[type='password']");
   const warningMessage = document.querySelector("#warning-message");
   const createAccountButton = document.querySelector("#create-account-btn");
   const forgotPasswordLink = document.getElementById("forgot-password");
-  const guestButton = document.querySelector(".guest-btn"); // Select the JOIN AS A GUEST button
+  const guestButton = document.querySelector(".guest-btn");
 
   // Check if the elements were found
-  if (!loginButton || !emailInput || !warningMessage || !createAccountButton || !forgotPasswordLink || !guestButton) {
+  if (!loginButton || !emailInput || !passwordInput || !warningMessage || !createAccountButton || !forgotPasswordLink || !guestButton) {
     console.error("One or more elements are missing. Check your HTML structure.");
     return;
   }
 
-  // Function to validate the email format
-  function validateEmail() {
-    const email = emailInput.value.trim();
-    const validDomain = "@kfupm.edu.sa";
+  // Sample data for Participants and Admins
+  const participants = [
+    { email: "participant1@kfupm.edu.sa", password: "password123" },
+    { email: "participant2@kfupm.edu.sa", password: "password456" }
+  ];
 
-    if (!email.endsWith(validDomain)) {
-      // Show warning and change background color if email is incorrect
-      emailInput.style.backgroundColor = "#ffcccc"; // Light red
+  const admins = [
+    { email: "admin1@kfupm.edu.sa", password: "adminpass1" },
+    { email: "admin2@kfupm.edu.sa", password: "adminpass2" }
+  ];
+
+  // Function to validate email format
+  function validateEmailFormat(email) {
+    const validDomain = "@kfupm.edu.sa";
+    return email.endsWith(validDomain);
+  }
+
+  // Function to handle login validation
+  function handleLogin() {
+    const email = emailInput.value.trim();
+    const password = passwordInput.value.trim();
+
+    if (!validateEmailFormat(email)) {
+      emailInput.style.backgroundColor = "#ffcccc";
       warningMessage.textContent = "Email must end with @kfupm.edu.sa";
-      warningMessage.style.color = "#ff0000"; // Red color for the warning
-    } else {
-      // Reset background color and clear warning if email is correct
-      emailInput.style.backgroundColor = ""; // Reset to default
-      warningMessage.textContent = "";
+      warningMessage.style.color = "#ff0000";
+      return;
     }
+
+    const participant = participants.find(user => user.email === email);
+    const admin = admins.find(user => user.email === email);
+
+    if (participant) {
+      if (participant.password === password) {
+        window.location.href = "HomePage.html"; // Redirect to participant homepage
+      } else {
+        showWarning("Incorrect password. Please try again.");
+      }
+    } else if (admin) {
+      if (admin.password === password) {
+        window.location.href = "AdminDashboardHome.html"; // Redirect to admin dashboard
+      } else {
+        showWarning("Incorrect password. Please try again.");
+      }
+    } else {
+      showWarning("No such email is registered on our platform.");
+    }
+  }
+
+  // Display warning message in red
+  function showWarning(message) {
+    warningMessage.textContent = message;
+    warningMessage.style.color = "#ff0000";
+    emailInput.style.backgroundColor = "#ffcccc";
   }
 
   // Add click event listener to the login button
   loginButton.addEventListener("click", (event) => {
-    event.preventDefault(); // Prevent form submission for validation
-    validateEmail();
+    event.preventDefault();
+    handleLogin();
   });
 
   createAccountButton.addEventListener("click", () => {
-    window.location.href = "Register.html"; // Redirect to Register.html
+    window.location.href = "Register.html";
   });
 
   forgotPasswordLink.addEventListener("click", (event) => {
-    event.preventDefault(); // Prevent default link behavior
-    window.location.href = "ResetPassword.html"; // Redirect to ResetPassword.html
+    event.preventDefault();
+    window.location.href = "ResetPassword.html";
   });
 
-  // Add click event listener to the guest button
   guestButton.addEventListener("click", () => {
-    window.location.href = "GuestHomePage.html"; // Redirect to GuestHomePage.html
+    window.location.href = "GuestHomePage.html";
   });
 });
