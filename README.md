@@ -46,7 +46,8 @@ To set up the project locally, follow these steps:
 - Dashboard for lost item reports
 
 **Project Structure**
-Find-My-Stuff-KFUPM/
+
+Find-My-Stuff-KFUPM
 ├── Phase 5/
 │   ├── css/
 │   │   ├── AdminDashboard.css
