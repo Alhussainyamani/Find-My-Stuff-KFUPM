@@ -1,222 +1,245 @@
 /* General Reset */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
-
-/* Sidebar Styling */
-.sidebar {
-  background-color: #007d40; /* Green background for the sidebar line */
-  width: 60px; /* Width of the sidebar */
-  height: 100vh; /* Full viewport height */
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start; /* Align icon to the top */
-  padding-top: 20px; /* Space from the top */
-  color: white;
-  flex-direction: column; /* Stack items vertically */
-}
-
-.sidebar-menu {
-  font-size: 24px;
-  color: #000000; /* Black color for the menu symbol */
-  cursor: pointer;
-}
-
-.sidebar-menu span {
-  color: #000000; /* Ensuring the symbol itself is black */
-}
-
-/* Header Styling */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  /* Sidebar Styling */
+  .sidebar {
+    background-color: #007D40; /* Green background for the sidebar line */
+    width: 60px; /* Width of the sidebar */
+    height: 100vh; /* Full viewport height */
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align icon to the top */
+    padding-top: 20px; /* Space from the top */
+    color: white;
+    flex-direction: column; /* Stack items vertically */
+  }
+  
+  .sidebar-menu {
+    font-size: 24px;
+    color: #000000; /* Black color for the menu symbol */
+    cursor: pointer;
+  }
+  
+  .sidebar-menu span {
+    color: #000000; /* Ensuring the symbol itself is black */
+  }
+  
+  /* Header Styling */
 .header {
-  background-color: #ffffff;
-  display: flex;
-  align-items: center;
-  padding: 20px;
-  padding-left: 60px;
-  margin-left: 80px;
-  position: relative; /* Needed to position the pseudo-element */
-  z-index: 1; /* Lower than sidebar */
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    padding-left: 60px;
+    margin-left: 80px;
+    position: relative; /* Needed to position the pseudo-element */
+    z-index: 1; /* Lower than sidebar */
 }
-
-.header::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 60px; /* Adjust this to control the left offset of the line */
-  width: calc(
-    100% - 60px
-  ); /* Reduce from the left (and optionally the right) */
-  height: 3px;
-  background-color: #000000; /* Bold black line */
-}
-
-.title {
-  flex: 1; /* Allows title to take up available space */
-  text-align: left;
-}
-
-.title h1 {
-  font-size: 24px;
-  font-weight: bold;
-  font-family: "Inter", sans-serif;
-  color: #1e1e1e;
-}
-
-.header-right {
-  display: flex;
-  align-items: center;
-}
-
-.login-btn {
-  background-color: #007d40;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+  
+  .header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 60px; /* Adjust this to control the left offset of the line */
+    width: calc(100% - 60px); /* Reduce from the left (and optionally the right) */
+    height: 3px;
+    background-color: #000000; /* Bold black line */
+  }
+  
+  
+  .title {
+    flex: 1; /* Allows title to take up available space */
+    text-align: left;
+  }
+  
+  .title h1 {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+    color: #1E1E1E;
+  }
+  
+  .header-right {
+    display: flex;
+    align-items: center;
+  }
+  .header-right .notification-icon, .header-right .profile-icon {
+  font-size: 24px; /* Larger size for better visibility */
+  color: black; /* 2D look */
   cursor: pointer;
-  font-size: 16px;
-  margin-right: 10px;
-  transition: background-color 0.3s;
+  margin-right: 20px;
 }
+  
+  .login-btn {
+    background-color: #007D40;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+  
+  /* Main Content Styling */
+  .main-content {
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1200px;
+    margin-left: 120px; /* Increased margin-left to create more space from the sidebar */
+    text-align: center;
+  }
+  
+  /* Banner Section */
+  .banner-section {
+    margin: 20px 0;
+  }
+  
+  .banner-section h2 {
+    font-size: 20px;
+    color: #333;
+  }
+  
+  .banner-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+  
+  .banner-text {
+    font-weight: bold;
+    margin-top: 10px;
+    color: #333;
+    border-bottom: 2px solid #007D40;
+    padding-bottom: 10px;
+    text-align: left;
+    font-size: 20px
+  }
+  
+  /* Search Button */
+  .search-section {
+    margin: 20px 0;
+  }
+  
+  .search-btn , .report-lost-btn, .report-found-btn{
+    background-color: #007D40;
+    color: white;
+    padding: 20px 60px; /* Increased horizontal padding for a wider button */
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 15px;
+  }
+  
+  .search-btn:hover , .report-lost-btn:hover      /* Hover For All Buttons used */
+  , .report-found-btn:hover , .login-btn:hover 
+  , .details-btn:hover , .submit-btn:hover 
+  , .popup-conthoverent .home-btn
+  ,  .add-bookmarks:hover, .comments-go:hover 
+  , .reject-btn:hover , .approve-btn:hover 
+  , .confirmation-buttons .yes-btn:hover , .confirmation-buttons .no-btn:hover  
+  , .edit-btn:hover , .delete-btn:hover , .modify-btn:hover , .cancel-btn:hover {
+    background-color: #1E1E1E;
+  }
 
-.login-btn:hover {
-  background-color: #1e1e1e;
-}
+  .dashboard-container {
+    background-color: #d3d3d3;
+    padding: 30px;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+  
+  
 
-.logo {
-  width: 50px;
-  height: 50px;
-}
+  .green-underline {
+    border-bottom: 2px solid #00843d; /* Green line */
+    width: 100%; /* Matches the width of the heading */
+    margin-bottom: 40px; /* Space below the line */
+    margin-top: 20px;
+  }
+  
+  
+  /* Related Items Section */
+  .related-items-section {
+    margin: 40px 0;
+  }
+  
+  .related-items-section h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+    border-bottom: 2px solid #007D40;
+    padding-bottom: 5px;
+    text-align: left;
+  }
+  
+  .items-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .item-card {
+    background-color: #f5f5f5;
+    width: 200px; /* Increased width for horizontal expansion */
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  .item-card p {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  .item-date {
+    color: #888;
+    font-size: 14px;
+  }
+  
+  .item-image-placeholder {
+    font-size: 50px;
+    color: #888;
+    margin: 10px 0;
+  }
+  
+  .details-btn , .confirmation-buttons .yes-btn , .confirmation-buttons .no-btn {
+    background-color: #007D40;
+    color: white;
+    padding: 8px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
 
-/* Main Content Styling */
-.main-content {
-  margin: 0 auto;
-  padding: 20px;
-  max-width: 1200px;
-  margin-left: 120px; /* Increased margin-left to create more space from the sidebar */
-  text-align: center;
-}
-
-/* Banner Section */
-.banner-section {
-  margin: 20px 0;
-}
-
-.banner-section h2 {
-  font-size: 20px;
-  color: #333;
-}
-
-.banner-image {
-  width: 100%;
-  max-height: 400px;
-  object-fit: cover;
-  margin-top: 10px;
-  margin-bottom: 30px;
-}
-
-.banner-text {
-  font-weight: bold;
-  margin-top: 10px;
-  color: #333;
-  border-bottom: 2px solid #007d40;
-  padding-bottom: 10px;
-  text-align: left;
-  font-size: 20px;
-}
-
-/* Search Button */
-.search-section {
-  margin: 20px 0;
-}
-
-.search-btn {
-  background-color: #007d40;
-  color: white;
-  padding: 20px 60px; /* Increased horizontal padding for a wider button */
-  border: none;
-  border-radius: 5px;
-  font-size: 18px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  margin-top: 15px;
-}
-
-.search-btn:hover {
-  background-color: #1e1e1e;
-}
-
-/* Related Items Section */
-.related-items-section {
-  margin: 40px 0;
-}
-
-.related-items-section h3 {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 15px;
-  color: #333;
-  border-bottom: 2px solid #007d40;
-  padding-bottom: 5px;
-  text-align: left;
-}
-
-.items-grid {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-}
-
-.item-card {
-  background-color: #f5f5f5;
-  width: 200px; /* Increased width for horizontal expansion */
-  padding: 15px;
-  border-radius: 5px;
-  text-align: center;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.item-card p {
-  font-size: 16px;
-  margin-bottom: 5px;
-  color: #333;
-}
-
-.item-date {
-  color: #888;
-  font-size: 14px;
-}
-
-.item-image-placeholder {
-  font-size: 50px;
-  color: #888;
-  margin: 10px 0;
-}
-
-.details-btn {
-  background-color: #007d40;
-  color: white;
-  padding: 8px 30px;
-  border: none;
-  border-radius: 5px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.details-btn:hover {
-  background-color: #1e1e1e;
-}
-
-/* Sidebar Styling */
-.sidebar {
-  background-color: #007d40;
+  
+  
+  /* Sidebar Styling */
+  .sidebar {
+  background-color: #007D40;
   width: 60px;
   height: 100vh;
   position: fixed;
@@ -232,57 +255,88 @@
   z-index: 2;
 }
 
+.stats-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.stat-card {
+  background-color: #808080;
+  color: black;
+  padding: 20px;
+  border-radius: 8px;
+  width: 150px;
+  text-align: center;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.stat-card h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.stat-number {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
 /* Expanded Sidebar */
 .sidebar-expanded {
-  width: 100px;
+    width: 110px;
 }
 
 /* Sidebar Menu Icon styling */
 .sidebar-menu span:first-child {
-  color: #000000;
+    color: #000000;
 }
 
 /* Menu text styling */
 .menu-text {
-  display: none;
-  font-family: "Inter", sans-serif;
-  color: white !important;
-  font-size: 16px;
-  margin-left: 10px;
-  font-weight: bold;
+    display: none;
+    font-family: 'Inter', sans-serif;
+    color: white !important;
+    font-size: 16px;
+    margin-left: 10px;
+    font-weight: bold;
 }
 
 /* Show menu text when sidebar is expanded */
 .sidebar-expanded .menu-text {
-  display: inline-block;
+    display: inline-block;
 }
 
 /* Home text styling */
 .home-text {
-  display: none;
-  font-family: "Inter", sans-serif;
-  color: white;
-  font-weight: bold;
-  font-size: 16px;
-  margin-top: 20px; /* Space below menu text */
-  text-decoration: none;
-  margin-left: 20px;
+    display: none;
+    font-family: 'Inter', sans-serif;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 20px; /* Space below menu text */
+    text-decoration: none;
+    margin-left: 20px;
 
-  transition: color 0.3s;
+    transition: color 0.3s;
 }
 
 /* Show Home text when sidebar is expanded */
 .sidebar-expanded .home-text {
-  display: inline-block;
+    display: inline-block;
 }
 
 /* Hover effect on Home text */
 .home-text:hover {
-  color: black;
+    color: black;
+}
+
+.myreports-items > * {
+  margin-bottom: 20px; /* Add space below each item */
 }
 
 /* Scrollable Container for Search Results */
-.search-results {
+.search-results , .myreports-lost , .myreports-found{
   max-height: 300px; /* Fixed height for scrolling */
   overflow-y: auto; /* Enable vertical scrolling */
   border: 1px solid #ddd; /* Border for the scroll box */
@@ -292,7 +346,7 @@
 }
 
 /* Expanded width for each Item Card */
-.search-results .item-card {
+.search-results .item-card , .myreports-lost .item-card , .myreports-found .item-card{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -308,36 +362,37 @@
 }
 
 /* Card Left and Right Sections */
-.search-results .card-left {
+.search-results .card-left , .myreports-lost .card-left , .myreports-found .card-left{
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
-.search-results .card-left p:first-child {
+.search-results .card-left p:first-child , .myreports-lost .card-left p:first-child , .myreports-found .card-left p:first-child{
   font-weight: bold;
   color: #333; /* Optional color adjustment */
 }
 
-.search-results .card-right {
+.search-results .card-right ,.myreports-lost .card-right , .myreports-found .card-right{
   display: flex;
   justify-content: flex-end;
 }
 
 /* Customize scrollbar for search results */
-.search-results::-webkit-scrollbar {
+.search-results::-webkit-scrollbar , .myreports-lost::-webkit-scrollbar , .myreports-found::-webkit-scrollbar{
   width: 8px;
 }
 
-.search-results::-webkit-scrollbar-thumb {
-  background-color: #007d40; /* Customize scrollbar color */
+.search-results::-webkit-scrollbar-thumb ,  .myreports-lost::-webkit-scrollbar-thumb , .myreports-found::-webkit-scrollbar-thumb{
+  background-color: #007D40; /* Customize scrollbar color */
   border-radius: 4px;
 }
 
-.search-results::-webkit-scrollbar-track {
+.search-results::-webkit-scrollbar-track , .myreports-lost::-webkit-scrollbar-track , .myreports-found::-webkit-scrollbar-track{
   background-color: #f1f1f1;
 }
 
+/* Style for Search Items title */
 /* Style for Search Items title */
 .search-items h2 {
   font-weight: bold;
@@ -387,10 +442,9 @@
 }
 
 /* Report Details Section */
-.report-details-section h2,
-.report-item h2 {
+.report-details-section h2 , .report-item h2 , .myreports-items h2 , .notifications-section h2 , .profile-box h2 , .comments-box-section h2{
   font-weight: bold;
-  border-bottom: 2px solid #007d40; /* Green line under header */
+  border-bottom: 2px solid #007D40; /* Green line under header */
   padding-bottom: 5px;
   margin-bottom: 20px;
   text-align: left;
@@ -398,7 +452,7 @@
 
 /* Details Box */
 .details-box {
-  background-color: #e6e6e6; /* Light gray background */
+  background-color: #E6E6E6; /* Light gray background */
   padding: 30px 20px; /* Increased padding for more height */
   display: flex;
   justify-content: space-between;
@@ -469,4 +523,478 @@
   font-size: 60px; /* Icon size */
   color: #888;
   margin-left: 50px;
+}
+
+.profile-logo {
+  width: 60px; /* Adjust width as needed */
+  height: 60px; /* Adjust height as needed */
+}
+
+/* Notification icon size */
+.notification-logo {
+  width: 30px; /* Adjust width as needed */
+  height: 30px; /* Adjust height as needed */
+  margin-right: 10px;
+}
+
+/* Report Form Styles */
+.report-item h2 {
+  font-weight: bold;
+  border-bottom: 2px solid #007D40;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.details-box-report {
+  background-color: #E6E6E6;
+  padding: 30px 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.details-box-points  {
+  background-color: #E6E6E6;
+  padding: 30px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comments-box {
+  background-color: #E6E6E6;
+  padding: 30px 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.points-display {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px 0;
+  align-items: center; /* Align items vertically in the middle */
+}
+
+.total-points, .points-earned {
+  width: 45%;
+  text-align: center;
+}
+
+.total-points h3, .points-earned h3 {
+  font-weight: bold;
+  border-bottom: 2px solid #007D40;
+  padding-bottom: 5px;
+  margin-bottom: 10px; /* Add some space between heading and value */
+}
+
+.total-points p, .points-earned p {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 0; /* Remove any top margin for alignment */
+}
+
+.total-points {
+  margin-top: 20px; /* Adjust this value as needed */
+  text-align: center;
+}
+
+.redeem-box {
+  margin: 20px 0;
+  width: 100%;
+  text-align: center;
+}
+
+.redeem-box input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  text-align: center;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Adjust form layout */
+.report-form , .mypoints-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  width: 100%;
+  height: 480px;
+  align-items: center; /* Align items vertically in the middle */
+}
+
+.mypoints-section h2 {
+  font-weight: bold;
+  border-bottom: 2px solid #007D40;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* Description and checkbox container */
+.description-checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 100px; /* Space between description and checkbox */
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.form-row input[type="text"] {
+  width: 60%; /* Reduce the width for input fields */
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+/* Description field (textarea) full width within the container */
+.form-row textarea {
+  width: 150%; /* Full width within the container */
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  resize: none;
+  height: 80px;
+}
+/* Checkbox styling */
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 10px; /* Adjust spacing to position next to description */
+}
+
+.upload-placeholder {
+  font-size: 40px;
+  color: #888;
+  text-align: center;
+  border: 1px dashed #ccc;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.submit-btn {
+  grid-column: span 2;
+  padding: 15px;
+  width: 15%; /* Set the width to your desired width */
+  margin: 0 auto;
+  background-color: #007D40;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* Style for the upload icon */
+.image-upload {
+  width: 100px; /* Adjust width as needed */
+  height: 100px; /* Adjust height as needed */
+  object-fit: contain; /* Make sure the image maintains its aspect ratio */
+  padding: 10px;
+}
+
+.required-asterisk {
+  color: red;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+  display: none; /* Hidden by default */
+}
+
+
+/* Popup overlay */
+.popup-overlay , .confirmation-popup{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none; /* Initially hidden */
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+
+/* Popup content with vertical layout */
+.popup-content {
+  background: #ffffff;
+  padding: 30px;
+  text-align: center;
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center;
+  gap: 20px; /* Space between each element */
+}
+
+.popup-content h2 {
+  font-weight: bold;
+  margin: 0; /* Remove bottom margin */
+}
+
+.popup-content img {
+  width: 80px;
+  height: 80px;
+}
+
+.confirmation-buttons {
+  margin-left: 5px;
+}
+.delete-icon {
+  cursor: pointer;
+  margin-right: 8px; /* Adjust spacing as needed */
+  color: #555; /* Optional: color for the icon */
+}
+
+.popup-content .home-btn , .confirmation-buttons .yes-btn , .confirmation-buttons .no-btn {
+  padding: 10px 20px;
+  background-color: #007D40;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+}
+
+
+
+.notifications-container {
+  max-height: 300px; /* Fixed height for scrolling */
+  overflow-y: auto; /* Enable vertical scrolling */
+  border: 1px solid #ddd; /* Border for the scroll box */
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #f9f9f9; /* Optional background color */
+  margin-top: 20px; /* Space from the header */
+}
+
+/* Notifications Items Container */
+.notifications-items h2 {
+  font-weight: bold;
+  text-align: left;
+  font-size: 24px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+/* Scrollable Container for Notifications Results */
+.notifications-results {
+  max-height: 700px; /* Custom height for notifications box */
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  margin-top: 20px;
+}
+
+/* Item Card Styling for Notifications */
+.notifications-results .item-card {
+  display: flex;
+  flex-direction: column; /* Stack title, date, and description vertically */
+  align-items: center; /* Center align content */
+  width: calc(100% - 20px);
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-title-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.notification-title {
+  font-weight: bold;
+  color: #333;
+}
+
+.notification-date {
+  color: #888;
+  font-size: 14px;
+  margin-top: 2px; /* Small space between title and date */
+}
+
+.notification-description {
+  margin-top: 10px;
+  color: #007D40;
+  font-size: 16px;
+  text-align: center;
+}
+
+.notifications-results .card-left {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.notifications-results .card-left p:first-child {
+  font-weight: bold;
+  color: #333;
+}
+
+.notifications-results .item-date {
+  color: #888;
+  font-size: 14px;
+}
+
+/* Customize scrollbar for notifications results */
+.notifications-results::-webkit-scrollbar {
+  width: 8px;
+}
+
+.notifications-results::-webkit-scrollbar-thumb {
+  background-color: #007D40;
+  border-radius: 4px;
+}
+
+.notifications-results::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+/* Profile Info Styling */
+.profile-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.profile-item {
+  display: flex;
+  align-items: center;
+}
+
+.profile-item label {
+  font-weight: bold;
+  margin-right: 10px;
+  color: #333;
+}
+
+.profile-item p {
+  font-size: 16px;
+  color: #555;
+  margin: 0;
+}
+
+/* Bookmarks Header Styling */
+.bookmarks-header {
+  font-weight: bold;
+  font-size: 20px;
+  color: #333;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #007D40; /* Green underline */
+  text-align: left;
+  width: 100%; /* Full width to align with other content */
+}
+
+/* Bookmarks List Styling */
+/* Ensure the bookmarks list container takes full width */
+.bookmarks-list {
+  max-height: 500px; /* Optional fixed height for scrolling */
+  overflow-y: auto; /* Enable vertical scrolling */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  margin-top: 10px;
+
+}
+
+/* Style individual item cards within bookmarks list */
+.bookmarks-list .item-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* Full width for each item card */
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+/* Customize scrollbar for bookmarks list */
+.bookmarks-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.bookmarks-list::-webkit-scrollbar-thumb {
+  background-color: #007D40; /* Customize scrollbar color */
+  border-radius: 4px;
+}
+
+.bookmarks-list::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Center the buttons */
+  gap: 20px; /* Increased space between the buttons */
+  margin-top: 15px; /* Space above the button container */
+  margin-left: 400px;
+
+}
+
+.add-bookmarks, .comments-go , .reject-btn , .approve-btn , .edit-btn , .delete-btn , .modify-btn , .cancel-btn  {
+  background-color: #007D40;
+  color: white;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  left: 1000px;
+}
+
+/* Style for the disabled bookmark button */
+.disabled-bookmark {
+  background-color: #d3d3d3; /* Light gray background */
+  color: #888; /* Dark gray text */
+  cursor: not-allowed; /* Change cursor to not-allowed */
 }

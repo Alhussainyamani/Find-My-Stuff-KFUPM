@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find it @ KFUPM - Admin Approved Report</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-menu">
+      <span>&#9776;</span>
+      <span class="menu-text">menu</span>
+      <a href="AdminDashboardHome.html" class="home-text">Home</a>
+      <a href="AdminDashboard.html" class="home-text">Dashboard</a>
+      <a href="AllReports.html" class="home-text">Reports</a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="title">
+      <h1>Find it @ KFUPM</h1>
+    </div>
+    <div class="header-right">
+      <i class="fas fa-bell notification-icon"></i>
+      <i class="fas fa-user profile-icon"></i>
+      <img src="assets/images/LOGO-03.png" alt="KFUPM Logo" class="logo main-logo">
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Report Details Section -->
+    <section class="report-details-section">
+        <h2>Report X Details</h2>
+        <div class="details-box">
+            <div class="details-left">
+                <p>Reporter Name: <span class="detail-value" id="reporter-name">Waleed</span></p>
+                <p>Date: <span class="detail-value" id="report-date">2023-11-05</span></p>
+                <p>Description: <span class="detail-value" id="report-description">Lost wallet near the library</span></p>
+                <div class="photo-container">
+                  <p>Photo of the Item:</p>
+                  <div class="item-image-placeholder">&#128247;</div>
+                </div>
+                <p>Report Status: <span class="detail-value" id="report-status">Pending</span></p>
+              
+                <!-- Centered Button Container -->
+                <div class="button-container">
+                  <button class="edit-btn">Edit</button>
+                  <button class="delete-btn">Delete</button>
+                  <button class="comments-go">Comments</button>
+                </div>
+              </div>              
+          <div class="details-right">
+            <p>Location:</p>
+            <div class="location-icon">&#128205;</div>
+          </div>
+        </div>
+    </section>
+
+    <div class="popup-overlay" id="edit-overlay" style="display: none;">
+        <div class="popup-content">
+            <h2>Select Details to Modify</h2>
+            <div>
+                <label><input type="checkbox" value="reporter-name"> Reporter Name</label><br>
+                <label><input type="checkbox" value="report-date"> Date</label><br>
+                <label><input type="checkbox" value="report-description"> Description</label><br>
+            </div>
+            <button id="modify-btn" class="modify-btn">Modify</button>
+            <button id="cancel-edit-btn" class="cancel-btn">Cancel</button> <!-- New Cancel Button -->
+        </div>
+      </div>
+
+    <!-- Modify Input Overlay -->
+<div class="popup-overlay" id="modify-input-overlay" style="display: none;">
+  <div class="popup-content">
+      <h2>Enter New Details</h2>
+      <div id="modify-input-fields"></div>
+      <button id="enter-btn">Enter</button>
+      <button id="cancel-modify-input-btn" class="cancel-btn">Cancel</button> <!-- New Cancel Button -->
+  </div>
+</div>
+
+    <!-- Success Overlay -->
+    <div class="popup-overlay" id="success-overlay" style="display: none;">
+        <div class="popup-content">
+            <h2>Details successfully modified!</h2>
+            <button class="home-btn" id="close-success-btn">Close</button>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Overlay -->
+    <div class="popup-overlay" id="confirmation-overlay" style="display: none;">
+        <div class="popup-content">
+            <h2>Are you sure you want to delete this report?</h2>
+            <div class="confirmation-buttons">
+                <button class="yes-btn" id="confirm-delete">Yes</button>
+                <button class="no-btn" id="cancel-delete">No</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Overlay for Delete -->
+    <div class="popup-overlay" id="delete-success-overlay" style="display: none;">
+        <div class="popup-content">
+            <h2>Report deleted successfully!</h2>
+            <button class="home-btn" id="close-delete-success-btn">Back to Reports</button>
+        </div>
+    </div>
+
+  </main>
+
+  <!-- Link to external JavaScript file -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="js/AdminApprovedReport.js"></script> 
+</body>
+</html>
