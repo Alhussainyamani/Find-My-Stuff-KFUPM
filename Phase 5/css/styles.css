@@ -155,7 +155,7 @@
   ,  .add-bookmarks:hover, .comments-go:hover 
   , .reject-btn:hover , .approve-btn:hover 
   , .confirmation-buttons .yes-btn:hover , .confirmation-buttons .no-btn:hover  
-  , .edit-btn:hover , .delete-btn:hover , .modify-btn:hover , .cancel-btn:hover {
+  , .edit-btn:hover , .delete-btn:hover , .modify-btn:hover , .cancel-btn:hover , .enter-btn:hover{
     background-color: #1E1E1E;
   }
 
@@ -982,7 +982,7 @@
 
 }
 
-.add-bookmarks, .comments-go , .reject-btn , .approve-btn , .edit-btn , .delete-btn , .modify-btn , .cancel-btn  {
+.add-bookmarks, .comments-go , .reject-btn , .approve-btn , .edit-btn , .delete-btn , .modify-btn , .cancel-btn  , .enter-btn{
   background-color: #007D40;
   color: white;
   padding: 15px 25px;

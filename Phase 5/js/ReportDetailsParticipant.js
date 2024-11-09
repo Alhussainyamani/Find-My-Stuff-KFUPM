@@ -34,7 +34,11 @@ document.addEventListener("DOMContentLoaded", () => {
         hidePopupMessage(); // Hide the popup
     });
 
-
+    document.addEventListener("click", (event) => {
+        if (event.target.classList.contains("details-btn")) {
+            window.location.href = "ParticipantReportDetails.html"; // Redirect to ReportDetailsGuest.html
+        }
+    });
 
     // Event listener for "Comments" button
     commentsButton.addEventListener("click", () => {

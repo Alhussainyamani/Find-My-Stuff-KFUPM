@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     } else if (admin) {
       if (admin.password === password) {
-        window.location.href = "AdminDashboardHome.html"; // Redirect to admin dashboard
+        window.location.href = "AdminHome.html"; // Redirect to admin dashboard
       } else {
         showWarning("Incorrect password. Please try again.");
       }
