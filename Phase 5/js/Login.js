@@ -13,17 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // Sample data for Participants and Admins // Use them for testing the UI
-  const participants = [
-    { email: "participant1@kfupm.edu.sa", password: "password123" },
-    { email: "participant2@kfupm.edu.sa", password: "password456" }
-  ];
-
-  const admins = [
-    { email: "admin1@kfupm.edu.sa", password: "adminpass1" },
-    { email: "admin2@kfupm.edu.sa", password: "adminpass2" }
-  ];
-
   // Function to validate email format
   function validateEmailFormat(email) {
     const validDomain = "@kfupm.edu.sa";
@@ -42,24 +31,42 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const participant = participants.find(user => user.email === email);
-    const admin = admins.find(user => user.email === email);
+    // Prepare the data to send to the backend (login)
+    const userData = {
+      email: email,
+      password: password
+    };
 
-    if (participant) {
-      if (participant.password === password) {
-        window.location.href = "HomePage.html"; // Redirect to participant homepage
-      } else {
-        showWarning("Incorrect password. Please try again.");
-      }
-    } else if (admin) {
-      if (admin.password === password) {
-        window.location.href = "AdminHome.html"; // Redirect to admin dashboard
-      } else {
-        showWarning("Incorrect password. Please try again.");
-      }
-    } else {
-      showWarning("No such email is registered on our platform.");
-    }
+    // Make the POST request to the backend API
+    fetch("http://localhost:3000/api/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(userData)
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.token) {
+          // Store the token in local storage for further authentication if necessary
+          localStorage.setItem("token", data.token);
+
+          // Check the user role and redirect accordingly
+          if (data.user.role === "admin") {
+            window.location.href = "AdminHome.html"; // Redirect to admin dashboard
+          } else if (data.user.role === "participant") {
+            window.location.href = "HomePage.html"; // Redirect to participant homepage
+          } else {
+            showWarning("Invalid role. Please contact support.");
+          }
+        } else {
+          showWarning(data.message || "Login failed. Please try again.");
+        }
+      })
+      .catch(error => {
+        console.error("Error:", error);
+        showWarning("An error occurred. Please try again.");
+      });
   }
 
   // Display warning message in red
