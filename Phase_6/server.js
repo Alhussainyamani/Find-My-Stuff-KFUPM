@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 const morgan = require("morgan");
 const cors = require("cors");
 const connectDB = require("./config/db");
-const errorHandler = require("./middleware/errorHandler");
+const { errorHandler, notFound } = require("./middleware/errorHandler"); // Updated import to include notFound
 
 // Import Routes
 const authRoutes = require("./routes/authRoutes");
@@ -33,8 +33,11 @@ app.use("/api/admin", adminRoutes); // Admin-specific actions
 
 // Health check endpoint
 app.get("/", (req, res) => {
-    res.status(200).json({ message: "API is running..." });
+  res.status(200).json({ message: "API is running..." });
 });
+
+// 404 Not Found Middleware
+app.use(notFound); // Handles undefined routes
 
 // Error handling middleware
 app.use(errorHandler);
@@ -42,5 +45,5 @@ app.use(errorHandler);
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
