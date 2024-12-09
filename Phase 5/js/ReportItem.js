@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
         formData.append("name", nameInput.value.trim());
         formData.append("number", numberInput.value.trim());
         formData.append("location", locationInput.value.trim());
-        formData.append("keyword", keywordInput.value.trim());
+        formData.append("information", keywordInput.value.trim());
         formData.append("description", descriptionInput.value.trim());
         formData.append("sensitiveItem", sensitiveItemInput.checked);
         formData.append("type", form.getAttribute("data-type"));

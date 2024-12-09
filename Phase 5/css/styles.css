@@ -502,7 +502,7 @@
 }
 
 /* Detail Value Box Styling */
-.detail-value {
+.detail-value, .location {
   background-color: #fff; /* White background */
   border: 1px solid #ddd; /* Light border */
   padding: 10px;
