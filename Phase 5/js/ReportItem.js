@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    form.addEventListener("submit", async (event) => {
+    form.addEventListener("submit", (event) => {
         event.preventDefault();
 
         let isValid = true;
@@ -113,27 +113,30 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        try {
-            const response = await fetch('http://localhost:3000/api/items', {
-                method: 'POST',
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                },
-                body: formData, // Send FormData directly
-            });
-
-            const result = await response.json();
-
-            if (response.ok) {
-                popupOverlay.style.display = "flex";
-            } else {
-                console.error("Server Error:", result);
-                alert(result.message || "An error occurred while submitting the report.");
+        fetch('http://localhost:3000/api/items', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(Object.fromEntries(formData.entries()))
+        })
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(errData => {
+                    throw new Error(errData.message || "Unknown error occurred.");
+                });
             }
-        } catch (error) {
+            return response.json();
+        })
+        .then(data => {
+            // Handle success response
+            popupOverlay.style.display = "flex";
+        })
+        .catch(error => {
             console.error("Request Error:", error);
-            alert("Error submitting the report. Please try again later.");
-        }
+            alert(`Error: ${error.message}`);
+        });
     });
 
     if (homeButton) {
