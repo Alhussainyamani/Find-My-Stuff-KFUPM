@@ -42,8 +42,8 @@ document.addEventListener("DOMContentLoaded", () => {
             itemCard.className = "item-card";
             itemCard.innerHTML = `
                 <div class="card-left">
-                    <p><strong>${item.name}</strong></p>
-                    <p class="item-date">${item.description || 'No description available'}</p>
+                    <p><strong>${item.information}</strong></p>
+                    <p class="item-date">${new Date(item.createdAt).toLocaleDateString('en-GB') || 'No description available'}</p>
                 </div>
                 <div class="card-right">
                     <button class="details-btn" data-id="${item._id}">Details</button>
