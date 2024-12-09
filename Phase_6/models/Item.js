@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 
 const itemSchema = new mongoose.Schema({
     type: { type: String, enum: ["lost", "found"], required: true }, //whether lost or found
+    name: String,
+    information: String,
     description: String, // description of the lost/found item
     location: String, // the location of a found/lost item
     imageUrl: String,  // image of the item in url format

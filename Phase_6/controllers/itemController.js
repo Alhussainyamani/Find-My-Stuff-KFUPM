@@ -4,9 +4,7 @@ const Item = require("../models/Item");
 const createItem = async (req, res) => {
     try {
 
-        console.log(req.body);
-        
-        const { type, description, location, imageUrl } = req.body;
+        const { type, description, location, imageUrl, information, name} = req.body;
 
         // Validate type (lost or found)
         if (!["lost", "found"].includes(type)) {
@@ -19,6 +17,8 @@ const createItem = async (req, res) => {
         description,
         location,
         imageUrl,
+        information,
+        name,
         createdBy: req.user.id, // Assuming `req.user` is set by authentication middleware
         });
 
@@ -36,10 +36,21 @@ const createItem = async (req, res) => {
 // Get all items (with optional filtering and sorting)
 const getItems = async (req, res) => {
     try {
-        const { type, status, sort, search } = req.query;
+        if (!req.user) {
+            return res.status(401).json({ message: 'User not authenticated' });
+        }
 
-        // Build query object
+        const { type, status, sort, search } = req.query;
+        const userId = req.user.id;  // Assuming the user ID is available in req.user
+
+        // Build query object based on user role
         const query = {};
+
+        if (req.user.role !== "admin") {
+            // If the user is not an admin, filter by user ID
+            query.createdBy = userId; 
+        }
+
         if (type) query.type = type; // Filter by type (lost/found)
         if (status) query.status = status; // Filter by status (active/resolved)
         if (search) query.description = { $regex: search, $options: "i" }; // Search by description (case-insensitive)
@@ -49,6 +60,7 @@ const getItems = async (req, res) => {
         if (sort === "newest") sortOptions.createdAt = -1;
         if (sort === "oldest") sortOptions.createdAt = 1;
 
+        // Fetch the items from the database based on the query
         const items = await Item.find(query).sort(sortOptions).populate("createdBy", "name email");
         res.status(200).json(items);
     } catch (error) {
@@ -56,6 +68,7 @@ const getItems = async (req, res) => {
         res.status(500).json({ message: "Error fetching items" });
     }
 };
+
 
 // Get a single item by ID
 const getItemById = async (req, res) => {

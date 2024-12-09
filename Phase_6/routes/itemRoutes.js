@@ -15,7 +15,7 @@ const router = express.Router();
 router.post("/", verifyToken, createItem);
 
 // Get all items (with optional filtering and sorting)
-router.get("/", getItems);
+router.get("/", verifyToken, getItems);
 
 // Get a single item by its ID
 router.get("/:itemId", getItemById);
