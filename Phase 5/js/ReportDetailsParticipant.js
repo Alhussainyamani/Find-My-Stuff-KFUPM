@@ -1,6 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const sidebar = document.querySelector(".sidebar");
+    const sidebarMenu = document.querySelector(".sidebar-menu");
+
     const itemId = new URLSearchParams(window.location.search).get("itemId"); // Get itemId from the URL
     const token = localStorage.getItem("token");
+
 
     // Ensure the itemId and token exist
     if (!itemId || !token) {
@@ -70,5 +74,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const commentsButton = document.querySelector(".comments-go");
     commentsButton.addEventListener("click", () => {
         window.location.href = "CommentsParticipant.html"; // Redirect to Comments page
+    });
+
+    sidebarMenu.addEventListener("click", () => {
+        sidebar.classList.toggle("sidebar-expanded");
+    });
+
+    // Redirect to profile page
+    const profileIcon = document.querySelector(".profile-icon");
+    profileIcon.addEventListener("click", () => {
+        window.location.href = "ProfileParticipantPage.html";
+    });
+
+    // Redirect to notifications page
+    const notificationIcon = document.querySelector(".notification-icon");
+    notificationIcon.addEventListener("click", () => {
+        window.location.href = "ParticipantNotifications.html";
     });
 });
