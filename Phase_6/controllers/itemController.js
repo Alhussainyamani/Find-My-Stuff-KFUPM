@@ -3,6 +3,9 @@ const Item = require("../models/Item");
 // Create a new lost or found item post
 const createItem = async (req, res) => {
     try {
+
+        console.log(req.body);
+        
         const { type, description, location, imageUrl } = req.body;
 
         // Validate type (lost or found)
