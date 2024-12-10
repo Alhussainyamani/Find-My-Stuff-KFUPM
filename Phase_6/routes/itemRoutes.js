@@ -25,12 +25,12 @@ router.get("/:itemId", getItemById);
 router.put("/:itemId", verifyToken, updateItem);
 
 // Delete an item post (requires authentication)
-router.delete("/:itemId", verifyToken, deleteItem);
+router.put("/:itemId/delete", verifyToken, deleteItem);
 
 // Mark an item as resolved
 router.put("/:itemId/resolve", verifyToken, resolveItem);
 
 // Mark an item as resolved
-router.put("/:itemId/resolve", verifyToken, approveItem);
+router.put("/:itemId/approve", verifyToken, approveItem);
 
 module.exports = router;

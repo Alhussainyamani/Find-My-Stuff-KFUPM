@@ -135,7 +135,7 @@ const deleteItem = async (req, res) => {
         return res.status(403).json({ message: "You are not authorized to delete this item" });
         }
 
-        await item.remove();
+        await Item.findByIdAndDelete(itemId);
 
         res.status(200).json({ message: "Item deleted successfully" });
     } catch (error) {
@@ -172,7 +172,40 @@ const resolveItem = async (req, res) => {
     }
 };
 
-const approveItem = async (req, res) => {}
+const approveItem = async (req, res) => {
+    try {
+        const { itemId } = req.params; // Get the item ID from the request parameters
+
+        // Find the item by its ID
+        const item = await Item.findById(itemId);
+        if (!item) {
+            return res.status(404).json({ message: "Item not found" });
+        }
+
+        // Ensure only an admin can approve an item
+        if (req.user.role !== "admin") {
+            return res.status(403).json({ message: "You are not authorized to approve this item" });
+        }
+
+        // Check if the item is already approved
+        if (item.approviness === "approved") {
+            return res.status(400).json({ message: "This item is already approved" });
+        }
+
+        // Update the 'approviness' field to 'approved'
+        item.approviness = "approved";
+        const updatedItem = await item.save();
+
+        res.status(200).json({
+            message: "Item approved successfully",
+            item: updatedItem,
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Error approving item" });
+    }
+};
+
 
 module.exports = {
     createItem,
