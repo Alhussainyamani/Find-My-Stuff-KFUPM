@@ -138,11 +138,75 @@ const logout = (req, res) => {
   res.status(200).json({ message: "Logged out successfully" });
 };
 
+// Get user profile (return all user details from the schema)
+const getProfile = async (req, res) => {
+    try {
+      // Find the user based on the ID decoded from the JWT token
+      const user = await User.findById(req.user.id);
+      
+      if (!user) {
+        return res.status(404).json({ message: "User not found" });
+      }
+  
+      // Return the user details excluding the password
+      const { password, ...userDetails } = user.toObject();
+  
+      res.status(200).json({
+        message: "User profile fetched successfully",
+        user: userDetails,
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Error fetching user profile" });
+    }
+  };
+
+  // Add an item to the user's bookmarks
+const addToBookmarks = async (req, res) => {
+    try {
+      const { itemId } = req.body; // Expect the itemId to be sent in the request body
+  
+      // Validate if the itemId is provided
+      if (!itemId) {
+        return res.status(400).json({ message: "ItemId is required" });
+      }
+  
+      // Find the user based on the JWT token
+      const user = await User.findById(req.user.id);
+  
+      if (!user) {
+        return res.status(404).json({ message: "User not found" });
+      }
+  
+      // Check if the item is already in the bookmarks
+      if (user.bookmarks.includes(itemId)) {
+        return res.status(400).json({ message: "Item is already bookmarked" });
+      }
+  
+      // Add the itemId to the bookmarks array
+      user.bookmarks.push(itemId);
+  
+      // Save the updated user document
+      await user.save();
+  
+      res.status(200).json({
+        message: "Item added to bookmarks successfully",
+        bookmarks: user.bookmarks,
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Error adding item to bookmarks" });
+    }
+  };
+  
+
+
 module.exports = {
   register,
   login,
   loginRateLimiter,
-  getProfile: verifyToken,
+  getProfile,
   restrictToAdmin,
   logout,
+  addToBookmarks
 };

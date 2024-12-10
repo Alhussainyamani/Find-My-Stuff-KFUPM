@@ -5,6 +5,7 @@ const {
   login,
   getProfile,
   logout,
+  addToBookmarks,
 } = require("../controllers/authController");
 const { verifyToken } = require("../middleware/authMiddleware");
 
@@ -38,7 +39,9 @@ router.post("/login", authRateLimiter, login);
 router.use(verifyToken);
 
 // Get the logged-in user's profile
-router.get("/profile", getProfile);
+router.get("/profile", verifyToken, getProfile);
+
+router.post("/bookmarks", verifyToken, addToBookmarks);
 
 // Logout a user (client-side handles token removal)
 router.post("/logout", logout);

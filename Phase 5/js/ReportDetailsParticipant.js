@@ -47,8 +47,29 @@ document.addEventListener("DOMContentLoaded", () => {
         // Handle the "Add to bookmarks" button
         const addToBookmarksButton = document.getElementById("add-bookmarks-btn");
         addToBookmarksButton.addEventListener("click", () => {
-            // Handle bookmarking logic here (e.g., save to localStorage or API)
-            showPopupMessage("Report has been successfully added to bookmarks.");
+            // Make a POST request to add the item to bookmarks
+            fetch("http://localhost:3000/api/auth/bookmarks", {
+                method: "POST",
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ itemId: itemId })
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.message === "Item added to bookmarks successfully") {
+                    // Show the success message in the popup
+                    showPopupMessage(data.message);
+                } else {
+                    // Handle failure
+                    alert("Item is Already Bookmarked.");
+                }
+            })
+            .catch((error) => {
+                console.error("Error adding item to bookmarks:", error);
+                alert("Error adding item to bookmarks.");
+            });
         });
 
     })
