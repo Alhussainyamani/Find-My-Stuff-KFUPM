@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Sample points data
-    const totalPoints = 322;
-    const pointsEarnedThisMonth = 16;
+    const totalPoints = 0;
 
     const fetchUserProfile = () => {
         const token = localStorage.getItem("token"); // Assuming token is stored in localStorage
