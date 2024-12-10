@@ -1,5 +1,9 @@
 {
-    "rewrites": [
-        { "source": "/", "destination": "Phase 5/Login.html" }
+    "redirects": [
+        {
+        "source": "/",
+        "destination": "/phase%205/Login.html",
+        "permanent": true
+        }
     ]
-}  
+}
