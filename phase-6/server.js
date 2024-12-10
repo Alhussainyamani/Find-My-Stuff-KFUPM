@@ -42,5 +42,11 @@ app.use(notFound); // Handles undefined routes
 // Error handling middleware
 app.use(errorHandler);
 
-// Export the app for Vercel
+// Start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
+
+// Export the app for testing
 module.exports = app;
