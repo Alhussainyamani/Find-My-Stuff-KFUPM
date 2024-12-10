@@ -99,7 +99,10 @@ document.addEventListener("DOMContentLoaded", () => {
         formData.append("location", locationInput.value.trim());
         formData.append("information", keywordInput.value.trim());
         formData.append("description", descriptionInput.value.trim());
-        formData.append("sensitiveItem", sensitiveItemInput.checked);
+        if (sensitiveItemInput.checked){
+            formData.append("approviness","unapproved");
+        }
+        else {formData.append("approviness","approved");}
         formData.append("type", form.getAttribute("data-type"));
 
         // Pass the base64 image URL only if the image is selected

@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Fetch items from the backend
     function fetchItems(query) {
-        fetch(`http://localhost:3000/api/items?search=${query}`, {
+        fetch(`http://localhost:3000/api/items?status=approved&search=${query}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

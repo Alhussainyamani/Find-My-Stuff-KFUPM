@@ -6,6 +6,7 @@ const {
     updateItem,
     deleteItem,
     resolveItem,
+    approveItem,
 } = require("../controllers/itemController");
 const { verifyToken } = require("../middleware/authMiddleware");
 
@@ -28,5 +29,8 @@ router.delete("/:itemId", verifyToken, deleteItem);
 
 // Mark an item as resolved
 router.put("/:itemId/resolve", verifyToken, resolveItem);
+
+// Mark an item as resolved
+router.put("/:itemId/resolve", verifyToken, approveItem);
 
 module.exports = router;

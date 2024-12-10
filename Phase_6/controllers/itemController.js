@@ -4,7 +4,7 @@ const Item = require("../models/Item");
 const createItem = async (req, res) => {
     try {
 
-        const { type, description, location, imageUrl, information, name} = req.body;
+        const { type, description, location, imageUrl, information, name, approviness} = req.body;
 
         // Validate type (lost or found)
         if (!["lost", "found"].includes(type)) {
@@ -19,6 +19,7 @@ const createItem = async (req, res) => {
         imageUrl,
         information,
         name,
+        approviness,
         createdBy: req.user.id, // Assuming `req.user` is set by authentication middleware
         });
 
@@ -34,6 +35,7 @@ const createItem = async (req, res) => {
 };
 
 // Get all items (with optional filtering and sorting)
+// In ItemController.js
 const getItems = async (req, res) => {
     try {
         if (!req.user) {
@@ -43,7 +45,6 @@ const getItems = async (req, res) => {
         const { type, status, sort, search } = req.query;
         const userId = req.user.id;  // Assuming the user ID is available in req.user
 
-        // Build query object based on user role
         const query = {};
 
         if (req.user.role !== "admin") {
@@ -51,11 +52,12 @@ const getItems = async (req, res) => {
             query.createdBy = userId; 
         }
 
+        // Add the filtering by 'approviness' here
+        if (status) query.approviness = status;  // This will filter for 'approved' or 'unapproved' items
+
         if (type) query.type = type; // Filter by type (lost/found)
-        if (status) query.status = status; // Filter by status (active/resolved)
         if (search) query.description = { $regex: search, $options: "i" }; // Search by description (case-insensitive)
 
-        // Sort items (e.g., by createdAt)
         const sortOptions = {};
         if (sort === "newest") sortOptions.createdAt = -1;
         if (sort === "oldest") sortOptions.createdAt = 1;
@@ -68,6 +70,7 @@ const getItems = async (req, res) => {
         res.status(500).json({ message: "Error fetching items" });
     }
 };
+
 
 
 // Get a single item by ID
@@ -169,6 +172,8 @@ const resolveItem = async (req, res) => {
     }
 };
 
+const approveItem = async (req, res) => {}
+
 module.exports = {
     createItem,
     getItems,
@@ -176,4 +181,5 @@ module.exports = {
     updateItem,
     deleteItem,
     resolveItem,
+    approveItem
 };
