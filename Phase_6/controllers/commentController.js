@@ -10,14 +10,14 @@ const addComment = async (req, res) => {
         // Check if the post exists
         const item = await Item.findById(itemId);
         if (!item) {
-        return res.status(404).json({ message: "Post not found" });
+            return res.status(404).json({ message: "Post not found" });
         }
 
         // Create a new comment
         const comment = new Comment({
-        text,
-        createdBy: req.user.id, // Assuming `req.user` is set by authentication middleware
-        itemId,
+            text,
+            createdBy: req.user.id, // Assuming `req.user` is set by authentication middleware
+            itemId,
         });
 
         // Save the comment to the database
@@ -27,9 +27,12 @@ const addComment = async (req, res) => {
         item.comments.push(savedComment._id);
         await item.save();
 
+        // Populate the comment with user data (name, email, etc.)
+        await savedComment.populate('createdBy', 'name email');
+
         res.status(201).json({
-        message: "Comment added successfully",
-        comment: savedComment,
+            message: "Comment added successfully",
+            comment: savedComment,
         });
     } catch (error) {
         console.error(error);

@@ -3,9 +3,30 @@ document.addEventListener("DOMContentLoaded", () => {
     const totalPoints = 322;
     const pointsEarnedThisMonth = 16;
 
-    // Display points in the HTML
-    document.getElementById("total-points").textContent = totalPoints;
-    document.getElementById("points-earned-month").textContent = pointsEarnedThisMonth;
+    const fetchUserProfile = () => {
+        const token = localStorage.getItem("token"); // Assuming token is stored in localStorage
+        fetch("http://localhost:3000/api/auth/profile", {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("Failed to fetch profile");
+          }
+          return response.json();
+        })
+        .then(data => {
+          const user = data.user;
+          document.getElementById("total-points").textContent = user.points;
+        })
+        .catch(error => {
+          console.error(error);
+          alert("Error fetching profile data");
+        });
+      };
+
+      fetchUserProfile();
 
     // Redeem button and input
     const redeemInput = document.getElementById("redeem-points");

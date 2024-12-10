@@ -583,7 +583,7 @@
   align-items: center; /* Align items vertically in the middle */
 }
 
-.total-points, .points-earned {
+.total-points{
   width: 45%;
   text-align: center;
 }

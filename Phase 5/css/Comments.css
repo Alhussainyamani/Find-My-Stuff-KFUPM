@@ -57,26 +57,32 @@
 
 /* Individual Comment */
 .comment-item {
-  display: flex;
-  align-items: center;
-  padding: 10px 15px;
-  background-color: #fff;
-  border: 2px solid; /* Border color will be set per sender */
-  border-radius: 20px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  font-size: 16px;
-  color: #333;
-  margin-bottom: 10px;
-  max-width: 70%; /* Adjust width as needed */
-  word-wrap: break-word; /* Ensures text wraps within the bubble */
-  margin-left: 100px;
+  margin-bottom: 15px; /* Space between comments */
+  padding: 10px;
+  border: 1px solid #ddd; /* Optional border */
+  border-radius: 5px; /* Optional rounded corners */
+  background-color: #f9f9f9; /* Background color */
 }
 
 /* Time Stamp */
 .comment-time {
   font-size: 12px;
-  color: #ddd; /* Light color for timestamp */
-  margin-left: 10px;
+  color: #888; /* Light grey color for timestamp */
+  margin-top: 5px; /* Space between message and timestamp */
+}
+
+.comment-sender {
+  font-weight: bold;
+  font-size: 14px;
+  color: #4CAF50; /* Green color for the sender's name */
+  margin-bottom: 15px; /* Increased space between name and message */
+}
+
+/* Style for the comment text */
+.comment-text {
+  font-size: 16px;
+  color: #333; /* Dark grey color for the message */
+  line-height: 1.5; /* Increase line height for better readability */
 }
 
 /* Post Comment Section (Outside comments box) */

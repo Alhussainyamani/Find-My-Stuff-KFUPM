@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Handle "Comments" button redirection
     const commentsButton = document.querySelector(".comments-go");
     commentsButton.addEventListener("click", () => {
-        window.location.href = "CommentsParticipant.html"; // Redirect to Comments page
+        window.location.href = `CommentsParticipant.html?itemId=${itemId}`;// Redirect to Comments page
     });
 
     sidebarMenu.addEventListener("click", () => {
