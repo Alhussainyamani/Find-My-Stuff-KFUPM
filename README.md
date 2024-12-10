@@ -1,5 +1,4 @@
-# Find-My-Stuff-KFUPM
-SWE363 project
+
 # Find-My-Stuff-KFUPM
 SWE363 project
 
@@ -14,7 +13,7 @@ This project is a system designed to help users locate lost items efficiently wi
 - **CSS3**
 - **JavaScript**
 
-## Installation Instructions
+## Installation Instructions - Phase 5
 
 To set up the project locally, follow these steps:
 
@@ -43,7 +42,7 @@ To set up the project locally, follow these steps:
 - User authentication (Login and Register)
 - Admin and user views
 - Item search functionality
-- Dashboard for lost item reports
+- Communications between users through comments
 
 - ## Project Structure
 Find-My-Stuff-KFUPM/
@@ -60,7 +59,29 @@ Find-My-Stuff-KFUPM/
 - **`images/`**: Contains image assets.
 - **`*.html`**: HTML files for different pages of the application.
 
+## Installation Instructions - Phase 6
 
+To set up the project locally, follow these steps:
+
+1. **Clone the Repository**
+   git clone https://github.com/Alhussainyamani/Find-My-Stuff-KFUPM.git
+
+2. **Install the dependencies using the terminal**
+   npm instal ..
+
+3. **Setup the .env**
+   should contains the MONGO_URI & JWT_SECRET.
+   
+4. **Run the server**
+    Go to Phase 6 File and Open **Server.js** and run it
+
+5. **Start the project**
+   Go to Phase 5 File and Open **Login.html** and run it locally.
+
+6. **Important Information to know before start the App**
+    We've implement the project using local hosts & MongoDB Cloud version.
+
+   
 ## Contribution Guidelines
 - Clone the repository and create a new branch for your feature or fix.
 - Commit your changes with clear and descriptive messages.
