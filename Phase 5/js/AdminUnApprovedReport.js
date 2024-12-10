@@ -11,6 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const itemId = new URLSearchParams(window.location.search).get("itemId"); // Get itemId from URL
     const token = localStorage.getItem("token");
 
+    const sidebar = document.querySelector(".sidebar");
+    const sidebarMenu = document.querySelector(".sidebar-menu");
+
     // Ensure the itemId and token exist
     if (!itemId || !token) {
         alert("Invalid request or missing token.");
@@ -128,5 +131,21 @@ document.addEventListener("DOMContentLoaded", () => {
     closeBtn.addEventListener("click", () => {
         popupOverlay.style.display = "none";
         window.location.href = "AllReports.html"; // Redirect to reports page
+    });
+
+    sidebarMenu.addEventListener("click", () => {
+        sidebar.classList.toggle("sidebar-expanded");
+    });
+
+    // Redirect to profile page
+    const profileIcon = document.querySelector(".profile-icon");
+    profileIcon.addEventListener("click", () => {
+        window.location.href = "ProfileAdmin.html";
+    });
+
+    // Redirect to notifications page
+    const notificationIcon = document.querySelector(".notification-icon");
+    notificationIcon.addEventListener("click", () => {
+        window.location.href = "AdminNotifications.html";
     });
 });

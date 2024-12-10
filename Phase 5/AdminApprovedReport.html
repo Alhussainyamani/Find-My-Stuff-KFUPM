@@ -51,7 +51,8 @@
               
                 <!-- Centered Button Container -->
                 <div class="button-container">
-                  <button class="edit-btn">Edit</button>
+                  <!-- Add to Bookmarks Button -->
+                  <button class="add-bookmarks" id="add-bookmarks-btn">Add to bookmarks</button>
                   <button class="delete-btn">Delete</button>
                   <button class="comments-go">Comments</button>
                 </div>
@@ -62,37 +63,6 @@
           </div>
         </div>
     </section>
-
-    <div class="popup-overlay" id="edit-overlay" style="display: none;">
-        <div class="popup-content">
-            <h2>Select Details to Modify</h2>
-            <div>
-                <label><input type="checkbox" value="reporter-name"> Reporter Name</label><br>
-                <label><input type="checkbox" value="report-date"> Date</label><br>
-                <label><input type="checkbox" value="report-description"> Description</label><br>
-            </div>
-            <button id="modify-btn" class="modify-btn">Modify</button>
-            <button id="cancel-edit-btn" class="cancel-btn">Cancel</button>
-        </div>
-      </div>
-
-    <!-- Modify Input Overlay -->
-    <div class="popup-overlay" id="modify-input-overlay" style="display: none;">
-      <div class="popup-content">
-          <h2>Enter New Details</h2>
-          <div id="modify-input-fields"></div>
-          <button id="enter-btn" class="enter-btn">Enter</button>
-          <button id="cancel-modify-input-btn" class="cancel-btn">Cancel</button>
-      </div>
-    </div>
-
-    <!-- Success Overlay -->
-    <div class="popup-overlay" id="success-overlay" style="display: none;">
-        <div class="popup-content">
-            <h2>Details successfully modified!</h2>
-            <button class="home-btn" id="close-success-btn">Close</button>
-        </div>
-    </div>
 
     <!-- Delete Confirmation Overlay -->
     <div class="popup-overlay" id="confirmation-overlay" style="display: none;">
@@ -112,6 +82,14 @@
             <button class="home-btn" id="close-delete-success-btn">Back to Reports</button>
         </div>
     </div>
+
+    <div class="popup-overlay" id="popup-overlay">
+      <div class="popup-content">
+          <h2>Report has been successfully added to bookmarks!</h2>
+          <img src="assets/images/checkmark.png" alt="Success" class="success-icon">
+          <button class="home-btn" id="close-btn">Close</button>
+      </div>
+  </div>
 
   </main>
 

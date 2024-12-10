@@ -180,7 +180,7 @@ const addToBookmarks = async (req, res) => {
   
       // Check if the item is already in the bookmarks
       if (user.bookmarks.includes(itemId)) {
-        return res.status(400).json({ message: "Item is already bookmarked" });
+        return res.status(200).json({ message: "Item is already bookmarked" });
       }
   
       // Add the itemId to the bookmarks array
