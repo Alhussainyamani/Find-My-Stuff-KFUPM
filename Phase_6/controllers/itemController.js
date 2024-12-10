@@ -107,6 +107,7 @@ const updateItem = async (req, res) => {
         return res.status(403).json({ message: "You are not authorized to update this item" });
         }
 
+        console.log(updates)
         Object.assign(item, updates); // Apply updates
         const updatedItem = await item.save();
 

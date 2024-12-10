@@ -7,23 +7,43 @@ document.addEventListener("DOMContentLoaded", () => {
     const confirmationOverlay = document.getElementById("confirmation-overlay");
     const successOverlay = document.getElementById("success-overlay");
     const closeBtn = document.getElementById("close-btn");
-    let commentToDeleteIndex = null; // Track which comment to delete
+    let commentToDeleteId = null; // Track which comment to delete
 
-    // Sample comments with sender info
-    const comments = [
-        { text: "Try calling the park’s lost and found office", time: "6min", sender: "other1" },
-        { text: "Hey, I was there around that time", time: "1d", sender: "other2" },
-        { text: "Hope you find it!", time: "2d", sender: "other1" }
-    ];
+    const itemId = new URLSearchParams(window.location.search).get("itemId"); // Get itemId from the URL
+    const token = localStorage.getItem("token");
+
+    // Function to fetch comments from the backend (simulated with a sample API)
+    async function fetchComments() {
+        try {
+            const response = await fetch(`http://localhost:3000/api/comments/${itemId}`, {
+                method: "GET",
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    "Content-Type": "application/json"
+                }
+            });
+            const data = await response.json();
+            if (data.comments) {
+                return data.comments; // Return the fetched comments
+            } else {
+                alert("No comments found for this item.");
+                return [];
+            }
+        } catch (error) {
+            console.error("Error fetching comments:", error);
+            alert("Error fetching comments.");
+            return []; // Return an empty array in case of error
+        }
+    }
 
     // Function to render comments with delete icon
-    function renderComments() {
+    function renderComments(comments) {
         commentsScroll.innerHTML = ""; // Clear previous comments
-        comments.forEach((comment, index) => {
+        comments.forEach((comment) => {
             const commentItem = document.createElement("div");
             commentItem.classList.add("comment-item", `sender-${comment.sender}`);
             commentItem.innerHTML = `
-                <span class="delete-icon" data-index="${index}">&#9776;</span> <!-- Delete icon -->
+                <span class="delete-icon" data-id="${comment.id}">&#9776;</span> <!-- Delete icon -->
                 <span>${comment.text}</span>
                 <span class="comment-time">${comment.time}</span>
             `;
@@ -31,32 +51,48 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Render initial comments
-    renderComments();
+    // Fetch and render comments on page load
+    async function loadComments() {
+        const comments = await fetchComments();
+        renderComments(comments);
+    }
 
-    // Handle sending new comment
-    sendCommentBtn.addEventListener("click", () => {
+    loadComments(); // Initial fetch and render comments
+
+    // Handle sending new comment (posting to the backend)
+    sendCommentBtn.addEventListener("click", async () => {
         const userComment = commentInput.value.trim();
         if (userComment) {
-            comments.unshift({ text: userComment, time: "Just now", sender: "user" });
-            renderComments();
-            commentInput.value = ""; // Clear input
+            try {
+                const response = await fetch("/api/comments", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ text: userComment })
+                });
+                const newComment = await response.json();
+                // Fetch the updated comments after posting a new one
+                const updatedComments = await fetchComments();
+                renderComments(updatedComments); // Re-render the updated list of comments
+                commentInput.value = ""; // Clear input
+            } catch (error) {
+                console.error("Error posting comment:", error);
+            }
         }
     });
 
-    // Show confirmation overlay
-    function showConfirmation(index) {
-        commentToDeleteIndex = index; // Store the index of the comment to delete
+    // Show confirmation overlay to delete comment
+    function showConfirmation(id) {
+        commentToDeleteId = id; // Store the ID of the comment to delete
         confirmationOverlay.style.display = "flex";
     }
 
     // Hide confirmation overlay
     function hideConfirmation() {
         confirmationOverlay.style.display = "none";
-        commentToDeleteIndex = null; // Reset the index
+        commentToDeleteId = null; // Reset the ID
     }
 
-    // Show success overlay
+    // Show success overlay after successful deletion
     function showSuccessOverlay() {
         successOverlay.style.display = "flex";
     }
@@ -69,18 +105,32 @@ document.addEventListener("DOMContentLoaded", () => {
     // Event listener for delete icon
     commentsScroll.addEventListener("click", (event) => {
         if (event.target.classList.contains("delete-icon")) {
-            const index = event.target.getAttribute("data-index");
-            showConfirmation(index);
+            const commentId = event.target.getAttribute("data-id");
+            showConfirmation(commentId);
         }
     });
 
-    // Confirm delete action
-    confirmationOverlay.querySelector(".yes-btn").addEventListener("click", () => {
-        if (commentToDeleteIndex !== null) {
-            comments.splice(commentToDeleteIndex, 1); // Delete the comment
-            renderComments();
-            hideConfirmation();
-            showSuccessOverlay(); // Show success message
+    // Confirm delete action and delete comment from backend
+    confirmationOverlay.querySelector(".yes-btn").addEventListener("click", async () => {
+        if (commentToDeleteId !== null) {
+            try {
+                // Call the backend to delete the comment
+                const response = await fetch(`/api/comments/${commentToDeleteId}`, {
+                    method: "DELETE",
+                });
+
+                if (response.ok) {
+                    // Fetch updated comments after deletion
+                    const comments = await fetchComments();
+                    renderComments(comments); // Re-fetch and render comments
+                    hideConfirmation();
+                    showSuccessOverlay(); // Show success message
+                } else {
+                    console.error("Error deleting comment");
+                }
+            } catch (error) {
+                console.error("Error deleting comment:", error);
+            }
         }
     });
 
