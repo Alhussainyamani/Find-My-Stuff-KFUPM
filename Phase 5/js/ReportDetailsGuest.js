@@ -2,12 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const sidebar = document.querySelector(".sidebar");
     const sidebarMenu = document.querySelector(".sidebar-menu");
     const loginButton = document.querySelector(".login-btn"); // Select the LOGIN button
-    const detailButton = document.querySelector(".details-btn");
-
-    detailButton.addEventListener("click", () => {
-        window.location.href = "ReportDetailsGuest.html";
-    });
-
 
     const itemId = new URLSearchParams(window.location.search).get("itemId"); // Get itemId from the URL
 

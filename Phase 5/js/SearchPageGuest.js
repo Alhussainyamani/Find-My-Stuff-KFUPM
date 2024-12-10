@@ -2,104 +2,114 @@ document.addEventListener("DOMContentLoaded", () => {
     const searchButton = document.querySelector(".search-btn");
     const searchInput = document.querySelector(".search-bar input");
     const itemsBox = document.querySelector(".search-results");
-    
+    const loginButton = document.querySelector(".login-btn");
 
-    document.addEventListener("click", (event) => {
-        if (event.target.classList.contains("details-btn")) {
-            window.location.href = "ReportDetailsGuest.html"; // Redirect to ReportDetailsGuest.html
-        }
-    });
-    
-    // Create container, message, and image elements
+    // Create container, message, and image elements for no items
     const noItemsContainer = document.createElement("div");
     const noItemsMessage = document.createElement("p");
     const sadFaceImage = document.createElement("img");
 
-    // Set up the sad face image
     sadFaceImage.src = "assets/images/sadface.png";
     sadFaceImage.alt = "Sad Face";
     sadFaceImage.classList.add("small-sadface");
     sadFaceImage.style.display = "none"; // Initially hidden
 
-    // Configure no items container
-    noItemsContainer.classList.add("no-items-container"); // Add class for CSS styling
+    noItemsContainer.classList.add("no-items-container");
     noItemsContainer.style.display = "none"; // Initially hidden
     noItemsMessage.style.color = "red";
     noItemsMessage.style.fontWeight = "bold";
 
-    // Append message and image to the container
     noItemsContainer.appendChild(noItemsMessage);
     noItemsContainer.appendChild(sadFaceImage);
-
-    // Insert container above the items box
     itemsBox.parentNode.insertBefore(noItemsContainer, itemsBox);
+    itemsBox.style.display = "none"; // Initially hidden
 
-    // Hide items box initially
-    itemsBox.style.display = "none";
-
-    // Function to display items with original design
-    function displayItems(numberOfItems) {
-        itemsBox.style.display = "block"; // Show items box
+    // Function to display items from the backend
+    function displayItems(items) {
+        itemsBox.style.display = "block";
         itemsBox.innerHTML = ""; // Clear previous items
-        noItemsContainer.style.display = "none"; // Hide no items message and image
+        noItemsContainer.style.display = "none"; // Hide no items message
 
-        for (let i = 1; i <= numberOfItems; i++) {
+        if (items.length === 0) {
+            noItemsMessage.textContent = "No items found for your search.";
+            sadFaceImage.style.display = "block"; // Display sad face image
+            noItemsContainer.style.display = "flex";
+            return;
+        }
+
+        items.forEach(item => {
+            console.log("Item:", item); // Log item to check if _id exists
             const itemCard = document.createElement("div");
             itemCard.className = "item-card";
             itemCard.innerHTML = `
                 <div class="card-left">
-                    <p><strong>Item ${i}</strong></p>
-                    <p class="item-date">Information about the Item</p>
+                    <p><strong>${item.information}</strong></p>
+                    <p class="item-date">${new Date(item.createdAt).toLocaleDateString('en-GB') || 'No description available'}</p>
                 </div>
                 <div class="card-right">
-                    <button class="details-btn">Details</button>
+                    <button class="details-btn" data-id="${item._id}">Details</button>
                 </div>
             `;
             itemsBox.appendChild(itemCard);
-        }
+
+            // Ensure the item._id exists before adding the event listener
+            const detailsBtn = itemCard.querySelector(".details-btn");
+            if (item._id) {
+                detailsBtn.addEventListener("click", () => {
+                    window.location.href = `ReportDetailsGuest.html?itemId=${item._id}`;
+                });
+            } else {
+                console.error("Error: item._id is missing for item:", item);
+                detailsBtn.disabled = true; // Disable button if no _id
+            }
+        });
     }
 
     // Function to perform search
     function performSearch() {
         const query = searchInput.value.trim().toLowerCase();
 
-        itemsBox.style.display = "none"; // Hide items box initially
-        itemsBox.innerHTML = ""; // Clear items
-        noItemsMessage.textContent = ""; // Clear message
-        sadFaceImage.style.display = "none"; // Hide sad face image
-        noItemsContainer.style.display = "none"; // Hide container initially
+        itemsBox.style.display = "none";
+        itemsBox.innerHTML = "";
+        noItemsMessage.textContent = "";
+        sadFaceImage.style.display = "none";
+        noItemsContainer.style.display = "none";
 
-        if (query === "key") {
-            // Display 4 items if the search term is 'key'
-            displayItems(4);
-        } else if (query === "wallet") {
-            // Show no items message and sad face for 'wallet'
-            noItemsMessage.textContent = "There are no items match what you are searching for.";
-            sadFaceImage.style.display = "block"; // Display sad face image
-            noItemsContainer.style.display = "flex"; // Show container with message and image
-        } else {
-            // Display default "no items found" message
-            noItemsMessage.textContent = "No items found for your search.";
-            sadFaceImage.style.display = "block"; // Display sad face image
-            noItemsContainer.style.display = "flex";
+        if (query) {
+            fetchItems(query);
         }
     }
 
-    // Attach event listener to the search button
+    // Fetch items from the backend
+    function fetchItems(query) {
+        fetch(`http://localhost:3000/api/items/guest?status=approved&search=${query}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            displayItems(data); // Display fetched items
+        })
+        .catch(error => {
+            console.error("Error fetching items:", error);
+            noItemsMessage.textContent = "Error fetching items.";
+            sadFaceImage.style.display = "block";
+            noItemsContainer.style.display = "flex";
+        });
+    }
+
     searchButton.addEventListener("click", performSearch);
 
-    // Sidebar functionality
     const sidebar = document.querySelector(".sidebar");
     const sidebarMenu = document.querySelector(".sidebar-menu");
-    const loginButton = document.querySelector(".login-btn"); // Select the LOGIN button
 
-    // Toggle the sidebar expanded class when the menu button or sidebar is clicked
     sidebarMenu.addEventListener("click", () => {
         sidebar.classList.toggle("sidebar-expanded");
     });
 
-    // Redirect to the Login page when the LOGIN button is clicked
     loginButton.addEventListener("click", () => {
-        window.location.href = "Login.html"; // Adjust the path as needed
+        window.location.href = "Login.html";
     });
 });

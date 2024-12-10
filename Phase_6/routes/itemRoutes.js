@@ -7,6 +7,7 @@ const {
     deleteItem,
     resolveItem,
     approveItem,
+    getItemsGuest,
 } = require("../controllers/itemController");
 const { verifyToken } = require("../middleware/authMiddleware");
 
@@ -17,6 +18,9 @@ router.post("/", verifyToken, createItem);
 
 // Get all items (with optional filtering and sorting)
 router.get("/", verifyToken, getItems);
+
+router.get("/guest", getItemsGuest);
+
 
 // Get a single item by its ID
 router.get("/:itemId", getItemById);

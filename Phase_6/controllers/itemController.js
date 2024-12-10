@@ -71,6 +71,36 @@ const getItems = async (req, res) => {
     }
 };
 
+const getItemsGuest = async (req, res) => {
+    try {
+        const { type, status, sort, search } = req.query;
+        const query = {};
+
+        // If the user is not admin, filter by createdBy (only authenticated users have req.user)
+        if (req.user && req.user.role !== "admin") {
+            query.createdBy = req.user.id; 
+        }
+
+        // Add the filtering by 'approviness' here
+        if (status) query.approviness = status;  // Filter for approved/unapproved items
+
+        if (type) query.type = type; // Filter by type (lost/found)
+        if (search) query.description = { $regex: search, $options: "i" }; // Search by description
+
+        const sortOptions = {};
+        if (sort === "newest") sortOptions.createdAt = -1;
+        if (sort === "oldest") sortOptions.createdAt = 1;
+
+        // Fetch the items from the database based on the query
+        const items = await Item.find(query).sort(sortOptions).populate("createdBy", "name email");
+        res.status(200).json(items); // Send the items back
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Error fetching items" });
+    }
+};
+
+
 
 
 // Get a single item by ID
@@ -215,5 +245,6 @@ module.exports = {
     updateItem,
     deleteItem,
     resolveItem,
-    approveItem
+    approveItem,
+    getItemsGuest
 };
